@@ -3,14 +3,13 @@ import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
 import Image from "react-bootstrap/Image";
 
 function NavScrollExample() {
   return (
     <Navbar bg="light" expand="sm">
       <Container fluid>
-        <Button variant="outline-*" size="sm">
+        <Button variant="outline-*" size="sm" color="#0d6efd">
           <Image
             src="https://ionic-pen-public-assets.s3.amazonaws.com/logo.png"
             width="50"
@@ -35,11 +34,14 @@ function NavScrollExample() {
               aria-label="Search"
             />
             <p>&nbsp;&nbsp;</p>
-            <Button variant="outline-success" size="sm">
+
+            <Button variant="success" size="sm">
               Pick&nbsp;For&nbsp;Me
             </Button>
+
             <p>&nbsp;&nbsp;</p>
-            <Button variant="outline-*" size="sm">
+
+            <Button variant="outline-*" size="sm" href="https://google.com">
               <Image
                 src="https://ionic-pen-public-assets.s3.amazonaws.com/profile.jpeg"
                 width="40"
