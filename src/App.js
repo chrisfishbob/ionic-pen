@@ -1,5 +1,5 @@
 import Button from 'react-bootstrap/Button'
-import NavScrollExample from './components/navbar.component';
+import NavScrollExample from './components/navbar/navbar.component';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
