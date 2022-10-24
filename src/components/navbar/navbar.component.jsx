@@ -12,7 +12,7 @@ function Search() {
   console.log("Test");
 }
 
-let BASE_URL = "127.0.0.1.3200";
+let BASE_URL = "127.0.0.1:3200";
 
 
 function NavScrollExample() {
