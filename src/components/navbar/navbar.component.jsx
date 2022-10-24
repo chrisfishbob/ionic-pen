@@ -5,18 +5,29 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Image from "react-bootstrap/Image";
 import { useState } from "react";
+import axios from 'axios';
 
 function Search() {
   // API goes here
   console.log("Test");
 }
 
+let BASE_URL = "127.0.0.1.3200";
+
+
 function NavScrollExample() {
   const [value, setValue] = useState();
   const onInput = ({ target: { value } }) => setValue(value);
-  const onFormSubmit = (e) => {
+  async function onFormSubmit(e) {
     e.preventDefault();
-    console.log(value);
+    try {
+      const response = await axios.get(`http://${BASE_URL}/api/search?q=${value}`);
+      console.log(response.data);
+    }
+    catch (error) {
+      console.log(error)
+    }
+
     setValue();
   };
 
