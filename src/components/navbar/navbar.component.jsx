@@ -5,6 +5,13 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Image from "react-bootstrap/Image";
 
+
+function Search() {
+  // API goes here
+  console.log("Test")
+}
+
+
 function NavScrollExample() {
   return (
     <Navbar bg="light" expand="sm">
@@ -23,7 +30,7 @@ function NavScrollExample() {
             style={{ maxHeight: "100px" }}
             navbarScroll
           >
-            <Nav.Link href="#action1">Home</Nav.Link>
+            <Nav.Link  href="https://google.com">Home</Nav.Link>
             <Nav.Link href="#action2">Catalog</Nav.Link>
           </Nav>
           <Form className="d-flex">
@@ -41,7 +48,7 @@ function NavScrollExample() {
 
             <p>&nbsp;&nbsp;</p>
 
-            <Button variant="outline-*" size="sm" href="https://google.com">
+            <Button variant="outline-*" onClick={Search} size="sm">
               <Image
                 src="https://ionic-pen-public-assets.s3.amazonaws.com/profile.jpeg"
                 width="40"
