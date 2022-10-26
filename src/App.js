@@ -1,12 +1,11 @@
-import Button from 'react-bootstrap/Button'
-import NavScrollExample from './components/navbar/navbar.component';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Home from './components/home/home.component';
 
 
 function App() {
   return (
     <div className="App">
-    <NavScrollExample />
+      <Home/> 
     </div>
   );
 }
