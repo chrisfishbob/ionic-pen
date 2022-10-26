@@ -1,15 +1,14 @@
-.recently-updated-cover-image {
+.popular-cover-image {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   margin: 5%;
   margin-top: 3%;
-  margin-bottom: 1%;
   height: 20%;
   width: 10vw;
 }
 
-.recently-updated-text {
+.popular-text {
     margin-top: 2%;
     margin-left: 5%;
     margin-bottom: 0%;

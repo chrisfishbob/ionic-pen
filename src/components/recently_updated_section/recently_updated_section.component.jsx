@@ -16,7 +16,7 @@ function RecentlyUpdatedSection() {
       {recently_updated_urls.map((url) => {
         return (
           <a href="https://google.com">
-            <img className="cover-image" src={url} width="100" height="180" />
+            <img className="recently-updated-cover-image" src={url} width="100" height="180" />
           </a>
         );
       })}
