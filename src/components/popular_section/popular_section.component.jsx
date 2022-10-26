@@ -12,7 +12,7 @@ function PopularSection() {
   ];
 
   return (
-    <div>
+    <div className="popular-section-container">
       <h1 className="popular-text">Popular Now</h1>
       {popular_urls.map((url) => {
         return (

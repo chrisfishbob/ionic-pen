@@ -11,7 +11,7 @@ function RecentlyUpdatedSection() {
   ];
 
   return (
-    <div>
+    <div className="recently-updated-container">
       <h1 className="recently-updated-text">Recently Updated</h1>
       {recently_updated_urls.map((url) => {
         return (
