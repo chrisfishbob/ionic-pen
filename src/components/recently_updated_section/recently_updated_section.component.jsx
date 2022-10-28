@@ -13,13 +13,20 @@ function RecentlyUpdatedSection() {
   return (
     <div className="recently-updated-container">
       <h1 className="recently-updated-text">Recently Updated</h1>
-      {recently_updated_urls.map((url) => {
-        return (
-          <a href="https://google.com">
-            <img className="recently-updated-cover-image" src={url} width="100" height="180" />
-          </a>
-        );
-      })}
+      <div className="images-container">
+        {recently_updated_urls.map((url) => {
+          return (
+            <a href="https://google.com" key={url}>
+              <img
+                className="recently-updated-cover-image"
+                src={url}
+                width="100"
+                height="180"
+              />
+            </a>
+          );
+        })}
+      </div>
     </div>
   );
 }

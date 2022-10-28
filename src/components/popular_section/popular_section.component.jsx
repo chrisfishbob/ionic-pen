@@ -14,13 +14,16 @@ function PopularSection() {
   return (
     <div className="popular-section-container">
       <h1 className="popular-text">Popular Now</h1>
+      <div>
       {popular_urls.map((url) => {
         return (
-          <a href="https://google.com">
+          <a href="https://google.com" key={url}>
             <img className="popular-cover-image" src={url} width="100" height="180" />
           </a>
         );
       })}
+
+      </div>
     </div>
   );
 }

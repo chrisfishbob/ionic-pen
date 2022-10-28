@@ -2,11 +2,12 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  margin: 4%;
   margin-top: 3%;
   margin-bottom: 1%;
-  height: 20%;
-  width: 10vw;
+  margin-left: 4%;
+  width: 10.5vw;
+  height: auto;
+  min-width: 150px;
 }
 
 .recently-updated-text {
@@ -19,6 +20,21 @@
 }
 
 .recently-updated-container {
-    margin-left: 5%;
-    margin-right: 5%;
+    margin-left: 13%;
+    margin-right: 10%;
+}
+
+
+/* User media query to make this page mobile friendly */
+@media screen and (max-width: 768px) {
+  .recently-updated-cover-image {
+    width: 70%;
+    margin-bottom: 8%;
+    margin-left: 13%;
+    min-width: 0px;
+  }
+
+  .recently-updated-text {
+    margin-left: 13%;
+  }
 }
