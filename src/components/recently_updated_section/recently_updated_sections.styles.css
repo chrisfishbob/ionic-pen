@@ -2,7 +2,7 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  margin-top: 3%;
+  margin-top: 2%;
   margin-bottom: 1%;
   margin-left: 4%;
   width: 10.5vw;
@@ -17,6 +17,7 @@
     font-size: 3vh;
     font-weight: 600;
     color: #000000;
+    font-family: "Libre Bonodi";
 }
 
 .recently-updated-container {
