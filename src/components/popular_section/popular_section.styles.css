@@ -28,12 +28,9 @@
 @media screen and (max-width: 768px) {
   .popular-cover-image {
     width: 70%;
+    margin: 5%;
     margin-left: 13%;
     margin-bottom: 5%;
     min-width: 0px;
-  }
-
-  .popular-text {
-    margin-left: 13%;
   }
 }
