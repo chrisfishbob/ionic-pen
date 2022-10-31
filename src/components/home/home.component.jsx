@@ -6,11 +6,10 @@ import GreyBubble from "../grey_bubble/grey.bubble.component";
 
 
 function Home() {
-    let isExpanded = window.screen.width > 600;
     return (
         <div>
             <NavScrollExample/>
-            { isExpanded && <GreyBubble/>}
+            <GreyBubble/>
             <RecentlyUpdatedSection/>
             <PopularSection/>
             <Footer/>
