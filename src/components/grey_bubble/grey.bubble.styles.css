@@ -70,7 +70,7 @@
 }
 
 .info-content {
-  margin-top: 20px;
+  margin-top: 1.5vh;
   float: left;
   font-size: max(0.85vw, 15px);
   width: 100%;
@@ -101,5 +101,11 @@
     justify-content: center;
     align-items: center;
     margin-left: 0;
+  }
+}
+
+@media screen and (max-height: 800px) {
+  .grey-bubble-container {
+    display: none;
   }
 }
