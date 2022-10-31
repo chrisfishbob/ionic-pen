@@ -22,20 +22,35 @@
   margin-left: 16%;
 }
 
-.div1 {
-  width: 15%;
+.book-image-container {
+  width: 20%;
 }
 
-.div2 {
+.book-title-container {
   width: 40%;
 }
 
-.div3 {
+.new-info-container {
+  width: max(15%, 200px);
   width: 20%;
+  display: flex;
 }
 
-.div4 {
-  width: 20%;
+.total-info-inner-container {
+    width: 100%;
+    height: 60%;
+    margin: auto;
+}
+
+.new-info-inner-container {
+    width: 100%;
+    height: 60%;
+    margin: auto;
+}
+
+.total-info-container {
+  width: max(15%, 200px);
+  display: flex;
 }
 
 .book-image {
@@ -57,23 +72,24 @@
 .info-content {
   margin-top: 20px;
   float: left;
-  font-size: 2vh;
+  font-size: max(0.85vw, 15px);
+  width: 100%;
 }
 
 @media screen and (max-width: 1000px) {
   .grey-bubble-container {
     margin-bottom: 10%;
   }
-  .div3,
-  .div4 {
+  .new-info-container,
+  .total-info-container {
     display: none;
   }
 
-  .div1 {
+  .book-image-container {
     width: 30%;
   }
 
-  .div2 {
+  .book-title-container {
     width: 70%;
   }
 
