@@ -23,6 +23,8 @@
 .popular-section-container {
     margin-left: 13%;
     margin-right: 10%;
+    /* This margin is here to have some space for the footer */
+    margin-bottom: 20px;
 }
 
 /* User media query to make this page mobile friendly */

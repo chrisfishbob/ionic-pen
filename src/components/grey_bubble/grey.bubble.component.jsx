@@ -8,11 +8,11 @@ function GreyBubble() {
         <div className="div1">
           <img
             className="book-image"
-            src="https://ionic-pen-public-assets.s3.amazonaws.com/book_cover_2.jpeg"
+            src="https://ionic-pen-public-assets.s3.amazonaws.com/book_cover_8.png"
           />
         </div>
         <div className="div2">
-          <h4 className="book-title">Six of Crows</h4>
+          <h4 className="book-title">The Suitcase Switch</h4>
         </div>
         <div className="div3">
           <h5 className="info-content">New Readers: {one}</h5>
