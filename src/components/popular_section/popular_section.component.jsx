@@ -1,5 +1,5 @@
 import "./popular_section.styles.css";
-
+import { Link } from "react-router-dom";
 
 function PopularSection() {
   // Todo: Make this an API call instead
@@ -15,14 +15,18 @@ function PopularSection() {
     <div className="popular-section-container">
       <h1 className="popular-text">Popular Now</h1>
       <div>
-      {popular_urls.map((url) => {
-        return (
-          <a href="https://google.com" key={url}>
-            <img className="popular-cover-image" src={url} width="100" height="180" />
-          </a>
-        );
-      })}
-
+        {popular_urls.map((url) => {
+          return (
+            <Link to="/book-details">
+              <img
+                className="popular-cover-image"
+                src={url}
+                width="100"
+                height="180"
+              />
+            </Link>
+          );
+        })}
       </div>
     </div>
   );

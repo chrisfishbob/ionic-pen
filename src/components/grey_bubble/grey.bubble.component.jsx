@@ -1,4 +1,5 @@
 import "./grey.bubble.styles.css";
+import { Link } from "react-router-dom";
 function GreyBubble() {
   let one = 1;
   return (
@@ -6,10 +7,12 @@ function GreyBubble() {
       <h4 className="welcome-text"> Welcome PrincessOfStory</h4>
       <div className="grey-bubble-container">
         <div className="book-image-container">
-          <img
-            className="book-image"
-            src="https://ionic-pen-public-assets.s3.amazonaws.com/book_cover_8.png"
-          />
+          <Link to="/book-details">
+            <img
+              className="book-image"
+              src="https://ionic-pen-public-assets.s3.amazonaws.com/book_cover_8.png"
+            />
+          </Link>
         </div>
         <div className="book-title-container">
           <h4 className="book-title">The Suitcase Switch</h4>

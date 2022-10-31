@@ -5,7 +5,8 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Image from "react-bootstrap/Image";
 import { useState } from "react";
-import axios from 'axios';
+import { LinkContainer } from "react-router-bootstrap";
+import axios from "axios";
 
 function Search() {
   // API goes here
@@ -14,22 +15,22 @@ function Search() {
 
 let BASE_URL = "127.0.0.1:3200";
 
-
 function NavScrollExample() {
   const [value, setValue] = useState();
   const onInput = ({ target: { value } }) => setValue(value);
   async function onFormSubmit(e) {
     e.preventDefault();
     try {
-      const response = await axios.get(`http://${BASE_URL}/api/search?q=${value}`);
+      const response = await axios.get(
+        `http://${BASE_URL}/api/search?q=${value}`
+      );
       console.log(response.data);
-    }
-    catch (error) {
-      console.log(error)
+    } catch (error) {
+      console.log(error);
     }
 
     setValue();
-  };
+  }
 
   return (
     <Navbar bg="light" expand="sm">
@@ -48,8 +49,13 @@ function NavScrollExample() {
             style={{ maxHeight: "100px" }}
             navbarScroll
           >
-            <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="#action2">Catalog</Nav.Link>
+            <LinkContainer to="/">
+              <Nav.Link>Home</Nav.Link>
+            </LinkContainer>
+
+            <LinkContainer to="/catalog">
+              <Nav.Link>Catalog</Nav.Link>
+            </LinkContainer>
           </Nav>
           <Form className="d-flex" onSubmit={onFormSubmit}>
             <Form.Control

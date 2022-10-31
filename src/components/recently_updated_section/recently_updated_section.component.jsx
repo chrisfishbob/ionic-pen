@@ -1,4 +1,5 @@
 import "./recently_updated_sections.styles.css";
+import { Link } from "react-router-dom";
 
 function RecentlyUpdatedSection() {
   // Todo: Make this an API call instead
@@ -16,14 +17,14 @@ function RecentlyUpdatedSection() {
       <div className="images-container">
         {recently_updated_urls.map((url) => {
           return (
-            <a href="https://google.com" key={url}>
+            <Link to="/book-details">
               <img
                 className="recently-updated-cover-image"
                 src={url}
                 width="100"
                 height="180"
               />
-            </a>
+            </Link> 
           );
         })}
       </div>
