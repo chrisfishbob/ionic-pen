@@ -17,7 +17,7 @@ function PopularSection() {
       <div>
         {popular_urls.map((url) => {
           return (
-            <Link to="/book-details">
+            <Link to="/book-details" key={url}>
               <img
                 className="popular-cover-image"
                 src={url}

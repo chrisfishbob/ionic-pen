@@ -17,7 +17,7 @@ function RecentlyUpdatedSection() {
       <div className="images-container">
         {recently_updated_urls.map((url) => {
           return (
-            <Link to="/book-details">
+            <Link to="/book-details" key={url}>
               <img
                 className="recently-updated-cover-image"
                 src={url}
