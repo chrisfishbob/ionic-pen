@@ -6,9 +6,9 @@ function PopularSection() {
   const popular_urls = [
     "https://ionic-pen-public-assets.s3.amazonaws.com/book_cover_6.jpeg",
     "https://ionic-pen-public-assets.s3.amazonaws.com/book_cover_5.jpeg",
+    "https://ionic-pen-public-assets.s3.amazonaws.com/book_cover_8.png",
     "https://ionic-pen-public-assets.s3.amazonaws.com/book_cover_2.jpeg",
     "https://ionic-pen-public-assets.s3.amazonaws.com/book_cover_1.jpeg",
-    "https://ionic-pen-public-assets.s3.amazonaws.com/book_cover_4.jpeg",
   ];
 
   return (
