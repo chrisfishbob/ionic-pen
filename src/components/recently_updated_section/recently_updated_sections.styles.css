@@ -36,7 +36,8 @@
   }
 
   .recently-updated-text {
-    margin-top: 5%;
-    margin-left: 13%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
