@@ -4,6 +4,9 @@ Source code repository for the Ionic Pen project.
 # FIGMA Design Link
 https://www.figma.com/file/c8UHVgMAIyej0bX7prE2wl/Ionic-Pen?node-id=1%3A16
 
+# Formatter (Prettier) Link
+https://prettier.io
+
 # Setup Instructions
 Execute `npm install` in terminal from the source code directory.<br>
 
