@@ -25,7 +25,7 @@ function Home() {
     return (
         <div>
             <NavScrollExample/>
-            //<h4 className="welcome-text"> Welcome {profile.username} </h4>
+            <h4 className="welcome-text"> Welcome {profile.username} </h4>
             <GreyBubble/>
             <RecentlyUpdatedSection books={books}/>
             <PopularSection/>
