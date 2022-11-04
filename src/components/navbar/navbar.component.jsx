@@ -6,30 +6,26 @@ import Navbar from "react-bootstrap/Navbar";
 import Image from "react-bootstrap/Image";
 import { useState } from "react";
 import { LinkContainer } from "react-router-bootstrap";
-import axios from "axios";
 
-function Search() {
-  // API goes here
-  console.log("Test");
-}
+import IonicPenAPI from "../../IonicPenAPI";
 
 let BASE_URL = "127.0.0.1:3200";
 
 function NavScrollExample() {
-  const [value, setValue] = useState();
+  const [value, setValue] = useState("");
   const onInput = ({ target: { value } }) => setValue(value);
   async function onFormSubmit(e) {
     e.preventDefault();
     try {
-      const response = await axios.get(
-        `http://${BASE_URL}/api/search?q=${value}`
-      );
-      console.log(response.data);
+      const response = await IonicPenAPI.search(value);
+      // const response = await axios.get(
+      //   `http://${BASE_URL}/api/search?q=${value}`
+      // );
+      console.log(response);
     } catch (error) {
       console.log(error);
     }
-
-    setValue();
+    setValue("");
   }
 
   return (
@@ -74,7 +70,7 @@ function NavScrollExample() {
 
             <p>&nbsp;&nbsp;</p>
 
-            <Button variant="outline-*" onClick={Search} size="sm">
+            <Button variant="outline-*" size="sm">
               <Image
                 src="https://ionic-pen-public-assets.s3.amazonaws.com/profile.jpeg"
                 width="40"
