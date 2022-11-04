@@ -1,7 +1,10 @@
 import axios from 'axios';
 import Session from './Session';
+import config from './config';
 
-const BASE_URL = 'http://127.0.0.1:3200';
+const { api: { host, port, name }} = config;
+
+const BASE_URL = `http://${host}:${port}`;
 
 class IonicPenAPI {
     static async login(username, password) {
