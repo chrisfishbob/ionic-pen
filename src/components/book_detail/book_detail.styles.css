@@ -1,0 +1,33 @@
+.book-detail {
+    height: 2%;
+    width: 100%;
+    background-color: #E6E6E6;
+    position: fixed;
+    bottom: 0;
+    text-align: center;
+    font-size: small;
+}
+.top {
+    min-height: 280px;
+}
+.left {
+    float: left;
+}
+.recently-updated-cover-image {
+    margin-left: 40px;
+    margin-right: 40px;
+}
+.read {
+    text-align: center;
+}
+.review {
+    color: dodgerblue;
+}
+.header_corner {
+    float: right;
+    text-align: right;
+    font-size: 30pt;
+}
+.footer_corner{
+    text-align: right;
+}
