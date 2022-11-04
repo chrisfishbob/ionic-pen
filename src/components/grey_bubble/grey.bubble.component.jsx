@@ -4,7 +4,7 @@ function GreyBubble() {
   let one = 1;
   return (
     <div>
-      <h4 className="welcome-text"> Welcome PrincessOfStory</h4>
+      {/* <h4 className="welcome-text"> Welcome PrincessOfStory</h4> */}
       <div className="grey-bubble-container">
         <div className="book-image-container">
           <Link to="/book-details">

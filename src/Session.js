@@ -1,8 +1,10 @@
 class Session {
     static getCookie(id) {
         id = id + "=";
+        let cookie = null;
         let cookiesArray = document.cookie.split(';');
-        for(let cookie in cookiesArray) {
+        for(let i in cookiesArray) {
+            cookie = cookiesArray[i];
             while (cookie.charAt(0)==' ') 
                 cookie = cookie.substring(1, cookie.length);
             if (cookie.indexOf(id) == 0) {
@@ -13,13 +15,13 @@ class Session {
     }
 
     static setCookie(id, value, days) {
-        var expires = "";
+        let expires = "";
         if (days) {
             var date = new Date();
             date.setTime(date.getTime() + (days*24*60*60*1000));
             expires = "; expires=" + date.toUTCString();
         }
-        document.cookie = `${id}=${value || ""}${expires}; path=/`;
+        document.cookie = `${id}=${value}${expires}; path=/`;
     }
 }
 
