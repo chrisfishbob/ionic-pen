@@ -9,18 +9,19 @@ const BASE_URL = `http://${host}:${port}`;
 class IonicPenAPI {
     static async login(username, password) {
         try {
-            axios.post(`${BASE_URL}/api/login/`, {
+            const response = await axios.post(`${BASE_URL}/api/login/`, {
                 username: username,
                 password: password
-            }).then( response => {
-                let authKey = response.data['auth-key'];
-                if (authKey) {
-                    Session.setCookie('auth-key', authKey, 28);
-                }
-            });
+            })
+            let authKey = response.data['auth-key'];
+            if (authKey) {
+                Session.setCookie('auth-key', authKey, 28);
+                return true;
+            }
         } catch (err) {
             console.log(err);
         }
+        return false;
     }
 
     static async getHomepage() {

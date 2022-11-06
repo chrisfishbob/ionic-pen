@@ -6,6 +6,8 @@ import GreyBubble from "../grey_bubble/grey.bubble.component";
 import IonicPenAPI from "../../IonicPenAPI";
 
 import { useState, useEffect } from "react";
+import Session from "../../Session";
+import { Navigate } from "react-router-dom";
 
 function Home() {
     const [profile, setProfile] = useState({});
@@ -14,13 +16,23 @@ function Home() {
 
     useEffect(() => {
         IonicPenAPI.getHomepage().then((response) => {
-            if (response) {
-                setProfile(response.data.profile);
-                setLibrary(response.data.library);
-                setBooks(response.data.books);
+            if (response && response.data) {
+                if (response.data.profile){
+                    setProfile(response.data.profile);
+                }
+                if (response.data.library){
+                    setLibrary(response.data.library);
+                }
+                if (response.data.books) {
+                    setBooks(response.data.books);
+                }
             }
         });
     }, [] );
+
+    if (!Session.isLoggedIn()) {
+        return <Navigate to="/login" />
+    }
 
     return (
         <div>

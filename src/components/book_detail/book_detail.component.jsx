@@ -3,7 +3,8 @@ import Footer from "../footer/footer.component";
 import "./book_detail.styles.css";
 
 import IonicPenAPI from "../../IonicPenAPI";
-import { useParams } from "react-router-dom";
+import Session from "../../Session";
+import { useParams, Navigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 function Book_Detail() {
@@ -37,6 +38,10 @@ function Book_Detail() {
         }
     });
   }, [] );
+
+  if (!Session.isLoggedIn()) {
+    return <Navigate to="/login" />;
+  }
 
   return (
     <div>

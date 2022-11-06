@@ -52,6 +52,10 @@ function NavScrollExample() {
             <LinkContainer to="/catalog">
               <Nav.Link>Catalog</Nav.Link>
             </LinkContainer>
+
+            <LinkContainer to="/logout">
+              <Nav.Link>Logout</Nav.Link>
+            </LinkContainer>
           </Nav>
           <Form className="d-flex" onSubmit={onFormSubmit}>
             <Form.Control

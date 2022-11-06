@@ -23,6 +23,19 @@ class Session {
         }
         document.cookie = `${id}=${value}${expires}; path=/`;
     }
+
+    static deleteCookie(id) {
+        this.setCookie(id, "", 0);
+    }
+
+    static isLoggedIn() {
+        let authKey = this.getCookie("auth-key");
+        return authKey && authKey !== "";
+    }
+
+    static logoutUser() {
+        this.deleteCookie("auth-key")
+    }
 }
 
 export default Session;

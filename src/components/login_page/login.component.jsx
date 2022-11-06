@@ -5,8 +5,12 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
 import { useState, useEffect } from "react";
+import Session from "../../Session";
+import { Navigate, useNavigate } from "react-router-dom";
 
 function Login() {
+    const navigate = useNavigate();
+
     const [form, setForm] = useState({
         username: "",
         password: ""
@@ -29,7 +33,11 @@ function Login() {
     async function onFormSubmit(event) {
         event.preventDefault();
         try {
-            const response = await IonicPenAPI.login(form.username, form.password);
+            IonicPenAPI.login(form.username, form.password).then((res) => {
+                if (res) {
+                    navigate("/");
+                }
+            })
         } catch (error) {
             console.log(error);
         }
@@ -39,18 +47,18 @@ function Login() {
         });
     }
 
+    if (Session.isLoggedIn()) {
+        return <Navigate to="/" />;
+    }
+
 
     return (
         <Form onSubmit={onFormSubmit}>
             <Form.Group className="mb-3" controlId="formBasicUsername">
                 <Form.Control type="text" placeholder="username" onChange={onUsernameInput} value={form.username}/>
             </Form.Group>
-
             <Form.Group className="mb-3" controlId="formBasicPassword">
                 <Form.Control type="password" placeholder="password" onChange={onPasswordInput} value={form.password}/>
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                <Form.Check type="checkbox" label="Check me out" />
             </Form.Group>
             <Button variant="primary" type="submit">
                 Login
