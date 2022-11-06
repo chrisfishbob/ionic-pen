@@ -13,7 +13,7 @@ class IonicPenAPI {
                 username: username,
                 password: password
             }).then( response => {
-                let authKey = response['auth-key'];
+                let authKey = response.data['auth-key'];
                 if (authKey) {
                     Session.setCookie('auth-key', authKey, 28);
                 }
@@ -25,10 +25,6 @@ class IonicPenAPI {
 
     static async getHomepage() {
         let authKey = Session.getCookie('auth-key');
-        if (!authKey) {
-            Session.setCookie('auth-key', '7bd70d40-598f-11ed-a852-8ba49a2d17dc');
-            authKey = Session.getCookie('auth-key');
-        }
         let response = {};
         try {
             response = await axios.get(`${BASE_URL}/api/homepage/`, {
