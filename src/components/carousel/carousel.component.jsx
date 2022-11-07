@@ -11,7 +11,13 @@ function ControlledCarousel(props) {
   };
 
   return (
-    <Carousel indicators={false} variant={"dark"} activeIndex={index} onSelect={handleSelect} interval={null}>
+    <Carousel
+      indicators={false}
+      variant={"dark"}
+      activeIndex={index}
+      onSelect={handleSelect}
+      interval={null}
+    >
       <Carousel.Item>
         <div className="carousel-images-container">
           {props.books.map((book) => {
@@ -27,7 +33,6 @@ function ControlledCarousel(props) {
             );
           })}
         </div>
-
       </Carousel.Item>
       <Carousel.Item>
         <div className="carousel-images-container">
