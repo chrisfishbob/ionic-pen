@@ -1,5 +1,7 @@
 import "./grey.bubble.styles.css";
 import { Link } from "react-router-dom";
+
+
 function GreyBubble() {
   let one = 1;
   return (
@@ -24,7 +26,6 @@ function GreyBubble() {
             <h5 className="info-content">New Likes: 3</h5>
           </div>
         </div>
-
         <div className="total-info-container">
           <div className="total-info-inner-container">
             <h5 className="info-content">Total Readers: 1</h5>
