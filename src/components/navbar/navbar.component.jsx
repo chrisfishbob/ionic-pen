@@ -6,6 +6,7 @@ import Navbar from "react-bootstrap/Navbar";
 import Image from "react-bootstrap/Image";
 import { useState } from "react";
 import { LinkContainer } from "react-router-bootstrap";
+import { Link } from "react-router-dom";
 
 import IonicPenAPI from "../../IonicPenAPI";
 
@@ -32,11 +33,13 @@ function NavScrollExample() {
     <Navbar bg="light" expand="sm">
       <Container fluid>
         <Button variant="outline-*" size="sm" color="#0d6efd">
-          <Image
-            src="https://ionic-pen-public-assets.s3.amazonaws.com/logo.png"
-            width="50"
-            height="50"
-          />
+          <Link to="/">
+            <Image
+              src="https://ionic-pen-public-assets.s3.amazonaws.com/logo.png"
+              width="50"
+              height="50"
+            />
+          </Link>
         </Button>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
