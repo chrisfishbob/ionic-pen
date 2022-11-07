@@ -1,5 +1,4 @@
 import NavScrollExample from "../navbar/navbar.component";
-import Footer from "../footer/footer.component";
 import "./book_detail.styles.css";
 
 import IonicPenAPI from "../../IonicPenAPI";
@@ -55,9 +54,9 @@ function Book_Detail() {
   }
 
   return (
-    <div>
+    <div >
       <NavScrollExample />
-      <div className="top">
+      <div className="top" style={{margin: 20}}>
         <div className="left">
           <img
             className="recently-updated-cover-image"
@@ -91,7 +90,7 @@ function Book_Detail() {
           </p>
         </div>
       </div>
-      <div>
+      <div style={{margin: 20}}>
         <p>Reviews ({book.reviews.length})</p>
         {book.reviews.map((comment) => {
           return (
@@ -105,7 +104,7 @@ function Book_Detail() {
           );
         })}
       </div>
-      <div className="footer_corner">All Reviews</div>
+      <div style={{margin: 20}} className="footer_corner">All Reviews</div>
     </div>
   );
 }
