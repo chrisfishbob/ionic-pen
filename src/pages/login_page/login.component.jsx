@@ -1,4 +1,3 @@
-import NavScrollExample from "../navbar/navbar.component";
 import IonicPenAPI from "../../IonicPenAPI";
 import "./login.styles.css";
 

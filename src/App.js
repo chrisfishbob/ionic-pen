@@ -1,6 +1,6 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import Home from "./components/home/home.component";
-import Login from "./components/login_page/login.component";
+import Home from "./pages/home/home.component";
+import Login from "../src/pages/login_page/login.component";
 import BookDetail from "./components/book_detail/book_detail.component";
 import { Route, Routes, Navigate } from "react-router-dom";
 import Session from "./Session";
