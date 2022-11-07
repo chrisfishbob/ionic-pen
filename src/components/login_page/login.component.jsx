@@ -56,7 +56,7 @@ function Login() {
     if (Session.isLoggedIn()) {
         return <Navigate to="/" />;
     }
-    let mt = [0, 0, 0, 0, 0, 0, 0];
+    let mt = [0, 0, 0, 0, 0, 0];
     return (
         <Container>
         {mt.map(() => {
@@ -65,14 +65,16 @@ function Login() {
         <Row style={{height: '100vh' }}>
             <Col></Col>
             <Col> 
+            {/* <div className="login-text">LOGIN</div> */}
                 <Card className="card-style">
+                    <Card.Title className="login-text"> LOGIN </Card.Title>
                     <Card.Body>
                         <Form onSubmit={onFormSubmit}>
                             <Form.Group className="mb-3" controlId="formBasicUsername">
-                                <Form.Control type="text" placeholder="email/username" onChange={onUsernameInput} value={form.username}/>
+                                <Form.Control className="input-field" type="text" placeholder="email/username" onChange={onUsernameInput} value={form.username}/>
                             </Form.Group>
                             <Form.Group className="mb-3" controlId="formBasicPassword">
-                                <Form.Control type="password" placeholder="password" onChange={onPasswordInput} value={form.password}/>
+                                <Form.Control className="input-field" type="password" placeholder="password" onChange={onPasswordInput} value={form.password}/>
                             </Form.Group>
                             <Button variant="primary" type="submit">
                                 Login
