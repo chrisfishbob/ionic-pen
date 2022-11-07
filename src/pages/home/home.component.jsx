@@ -1,4 +1,4 @@
-import NavScrollExample from "../../components/navbar/navbar.component";
+import NavBar from "../../components/navbar/navbar.component";
 import Footer from "../../components/footer/footer.component";
 import GreyBubble from "../../components/grey_bubble/grey.bubble.component";
 import IonicPenAPI from "../../IonicPenAPI";
@@ -35,7 +35,7 @@ function Home() {
 
   return (
     <div>
-      <NavScrollExample />
+      <NavBar />
       <h4 className="welcome-text"> Welcome {profile.username} </h4>
       <GreyBubble />
       <h1 className="carousel-text">Library</h1>

@@ -1,4 +1,4 @@
-import NavScrollExample from "../navbar/navbar.component";
+import NavBar from "../navbar/navbar.component";
 import "./book_detail.styles.css";
 
 import IonicPenAPI from "../../IonicPenAPI";
@@ -55,7 +55,7 @@ function Book_Detail() {
 
   return (
     <div >
-      <NavScrollExample />
+      <NavBar />
       <div className="top" style={{margin: 20}}>
         <div className="left">
           <img

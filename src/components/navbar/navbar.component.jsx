@@ -12,7 +12,7 @@ import IonicPenAPI from "../../IonicPenAPI";
 
 let BASE_URL = "127.0.0.1:3200";
 
-function NavScrollExample() {
+function NavBar() {
   const [value, setValue] = useState("");
   const onInput = ({ target: { value } }) => setValue(value);
   async function onFormSubmit(e) {
@@ -93,4 +93,4 @@ function NavScrollExample() {
   );
 }
 
-export default NavScrollExample;
+export default NavBar;
