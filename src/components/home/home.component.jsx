@@ -39,16 +39,9 @@ function Home() {
       <h4 className="welcome-text"> Welcome {profile.username} </h4>
       <GreyBubble />
       <h1 className="carousel-text">Library</h1>
-      <div className="carousel-container">
-        <ControlledCarousel books={books}/>
-      </div>
-
+      <ControlledCarousel books={books} />
       <h1 className="carousel-text">All Books</h1>
-      <div className="carousel-container">
-        <ControlledCarousel books={books}/>
-      </div>
-      {/* <RecentlyUpdatedSection books={books}/>
-            <PopularSection/> */}
+      <ControlledCarousel books={books} />
       <Footer />
     </div>
   );
