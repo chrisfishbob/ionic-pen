@@ -1,6 +1,7 @@
 .card-style {
     width: '25rem';
-    line-height: "100%";
+    min-width: 250px;
+    line-height: 100%;
     color: black;
     background-color: rgba(161, 253, 198, 0.45);
     border-radius: 20px;
