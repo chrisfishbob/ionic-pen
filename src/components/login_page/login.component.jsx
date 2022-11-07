@@ -1,14 +1,20 @@
 import NavScrollExample from "../navbar/navbar.component";
 import IonicPenAPI from "../../IonicPenAPI";
+import "./login.styles.css";
 
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import Card from 'react-bootstrap/Card';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 import { useState, useEffect } from "react";
 import Session from "../../Session";
 import { Navigate, useNavigate } from "react-router-dom";
 
 function Login() {
+
     const navigate = useNavigate();
 
     const [form, setForm] = useState({
@@ -50,23 +56,36 @@ function Login() {
     if (Session.isLoggedIn()) {
         return <Navigate to="/" />;
     }
-
-
+    let mt = [0, 0, 0, 0, 0, 0, 0];
     return (
-        <Form onSubmit={onFormSubmit}>
-            <Form.Group className="mb-3" controlId="formBasicUsername">
-                <Form.Control type="text" placeholder="username" onChange={onUsernameInput} value={form.username}/>
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicPassword">
-                <Form.Control type="password" placeholder="password" onChange={onPasswordInput} value={form.password}/>
-            </Form.Group>
-            <Button variant="primary" type="submit">
-                Login
-            </Button>
-        </Form>
+        <Container>
+        {mt.map(() => {
+            return (<br></br>);
+        })}
+        <Row style={{height: '100vh' }}>
+            <Col></Col>
+            <Col> 
+                <Card className="card-style">
+                    <Card.Body>
+                        <Form onSubmit={onFormSubmit}>
+                            <Form.Group className="mb-3" controlId="formBasicUsername">
+                                <Form.Control type="text" placeholder="email/username" onChange={onUsernameInput} value={form.username}/>
+                            </Form.Group>
+                            <Form.Group className="mb-3" controlId="formBasicPassword">
+                                <Form.Control type="password" placeholder="password" onChange={onPasswordInput} value={form.password}/>
+                            </Form.Group>
+                            <Button variant="primary" type="submit">
+                                Login
+                            </Button>
+                        </Form>
+                    </Card.Body>
+                </Card>
+            </Col>
+            <Col></Col>
+        </Row>
+        </Container>
+        
     )
 }
-
-
 
 export default Login;
