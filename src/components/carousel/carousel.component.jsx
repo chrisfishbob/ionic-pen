@@ -10,6 +10,19 @@ function ControlledCarousel(props) {
     setIndex(selectedIndex);
   };
 
+  let booksByPage = [[]];
+  if (props.books && props.books.length > 0) {
+    booksByPage = [];
+    let n = 0;
+    for (let i=0; i<props.books.length; i+=5) {
+      booksByPage[n] = [];
+      for (let j=i; j<Math.min(i+5, props.books.length); j++) {
+        booksByPage[n].push(props.books[j]);
+      }
+      n += 1
+    }
+  }
+
   return (
     <Carousel
       indicators={false}
@@ -18,38 +31,27 @@ function ControlledCarousel(props) {
       onSelect={handleSelect}
       interval={null}
     >
-      <Carousel.Item>
-        <div className="carousel-images-container">
-          {props.books.map((book) => {
-            return (
-              <Link to={`/book/${book.book_id}`} key={book.book_id}>
-                <img
-                  className="carousel-cover-image"
-                  src={book.cover_image}
-                  width="100"
-                  height="180"
-                />
-              </Link>
-            );
-          })}
-        </div>
-      </Carousel.Item>
-      <Carousel.Item>
-        <div className="carousel-images-container">
-          {props.books.map((book) => {
-            return (
-              <Link to={`/book/${book.book_id}`} key={book.book_id}>
-                <img
-                  className="carousel-cover-image"
-                  src={book.cover_image}
-                  width="100"
-                  height="180"
-                />
-              </Link>
-            );
-          })}
-        </div>
-      </Carousel.Item>
+      {booksByPage.map((booksPerPage) => {
+        return (
+          <Carousel.Item>
+            <div className="carousel-images-container">
+              {booksPerPage.map((book) => {
+                return (
+                  <Link to={`/book/${book.book_id}`} key={book.book_id}>
+                    <img
+                      className="carousel-cover-image"
+                      src={book.cover_image}
+                      width="100"
+                      height="180"
+                    />
+                  </Link>
+                );
+              })}
+            </div>
+          </Carousel.Item>
+        )
+      })}
+      
     </Carousel>
   );
 }

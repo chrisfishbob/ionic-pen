@@ -39,7 +39,7 @@ function Home() {
       <h4 className="welcome-text"> Welcome {profile.username} </h4>
       <GreyBubble />
       <h1 className="carousel-text">Library</h1>
-      <ControlledCarousel books={books} />
+      <ControlledCarousel books={library} />
       <h1 className="carousel-text">All Books</h1>
       <ControlledCarousel books={books} />
       <Footer />
