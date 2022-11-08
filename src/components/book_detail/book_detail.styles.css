@@ -8,7 +8,14 @@
     font-size: small;
 }
 .top {
-    min-height: 280px;
+    display: block;
+    overflow: auto;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+.down {
+    margin-left: 10%;
+    margin-right: 10%;
 }
 .left {
     float: left;
@@ -30,4 +37,22 @@
 }
 .footer_corner{
     text-align: right;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+.readmore {
+    cursor: pointer;
+    color: dodgerblue;
+    text-decoration: underline;
+}
+.readmore:hover {
+    text-decoration: none;
+}
+.reviewer {
+    font-size: x-small;
+    vertical-align: text-top;
+    margin-top: 0;
+}
+.comment {
+    font-size: 14px;
 }
