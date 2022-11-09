@@ -71,14 +71,16 @@ function Login() {
                     <Card.Body>
                         <Form onSubmit={onFormSubmit}>
                             <Form.Group className="mb-3" controlId="formBasicUsername">
-                                <Form.Control className="input-field" type="text" placeholder="email/username" onChange={onUsernameInput} value={form.username}/>
+                                <Form.Control className="input-field" type="text" placeholder="username" onChange={onUsernameInput} value={form.username}/>
                             </Form.Group>
                             <Form.Group className="mb-3" controlId="formBasicPassword">
                                 <Form.Control className="input-field" type="password" placeholder="password" onChange={onPasswordInput} value={form.password}/>
                             </Form.Group>
-                            <Button variant="primary" type="submit">
-                                Login
+                            <center>
+                            <Button className="login-button" variant="primary" type="submit">
+                                <div className="loginButtonText">LOGIN</div>
                             </Button>
+                            </center>
                         </Form>
                     </Card.Body>
                 </Card>
