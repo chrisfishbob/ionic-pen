@@ -1,7 +1,6 @@
 import "./grey.bubble.styles.css";
 import { Link } from "react-router-dom";
 
-
 function GreyBubble() {
   let one = 1;
   return (

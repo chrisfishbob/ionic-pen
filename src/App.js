@@ -1,20 +1,14 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import Home from "./components/home/home.component";
-import Login from "./components/login_page/login.component";
-import BookDetail from './components/book_detail/book_detail.component';
-import { Route, Routes, Navigate} from "react-router-dom";
+import Home from "./pages/home/home.component";
+import Login from "./pages/login_page/login.component";
+import BookDetail from "./pages/book_detail/book_detail.component";
+import { Route, Routes, Navigate } from "react-router-dom";
 import Session from "./Session";
+import Catalog from "./pages/catalog/catalog.component";
 
 function Logout() {
   Session.logoutUser();
-  return <Navigate to="/login" />
-}
-
-function Catalog() {
-  if (!Session.isLoggedIn()) {
-    return <Navigate to="/login" />;
-  }
-  return <h1>Catalog</h1>;
+  return <Navigate to="/login" />;
 }
 
 function App() {
@@ -22,9 +16,9 @@ function App() {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/login" element={<Login />} />
-      <Route path="/logout" element={<Logout/>} />
+      <Route path="/logout" element={<Logout />} />
       <Route path="/catalog" element={<Catalog />} />
-      <Route path="/book-details" element= {<BookDetail />} />
+      <Route path="/book-details" element={<BookDetail />} />
       <Route path="/book/:book_id" element={<BookDetail />} />
     </Routes>
   );

@@ -10,18 +10,13 @@ import { Link } from "react-router-dom";
 
 import IonicPenAPI from "../../IonicPenAPI";
 
-let BASE_URL = "127.0.0.1:3200";
-
-function NavScrollExample() {
+function NavBar() {
   const [value, setValue] = useState("");
   const onInput = ({ target: { value } }) => setValue(value);
   async function onFormSubmit(e) {
     e.preventDefault();
     try {
       const response = await IonicPenAPI.search(value);
-      // const response = await axios.get(
-      //   `http://${BASE_URL}/api/search?q=${value}`
-      // );
       console.log(response);
     } catch (error) {
       console.log(error);
@@ -93,4 +88,4 @@ function NavScrollExample() {
   );
 }
 
-export default NavScrollExample;
+export default NavBar;
