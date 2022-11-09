@@ -22,7 +22,7 @@ function ControlledCarousel(props) {
       n += 1
     }
   }
-
+ 
   return (
     <Carousel
       indicators={false}
