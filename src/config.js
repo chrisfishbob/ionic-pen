@@ -1,7 +1,6 @@
 const config = {
     api: {
-        host: '127.0.0.1',
-        port: 3200,
+        host: 'ionic-pen.azurewebsites.net',
         name: 'IonicPenAPI'
     }
 };

@@ -5,9 +5,9 @@ class Session {
         let cookiesArray = document.cookie.split(';');
         for(let i in cookiesArray) {
             cookie = cookiesArray[i];
-            while (cookie.charAt(0)==' ') 
+            while (cookie.charAt(0) === ' ') 
                 cookie = cookie.substring(1, cookie.length);
-            if (cookie.indexOf(id) == 0) {
+            if (cookie.indexOf(id) === 0) {
                 return cookie.substring(id.length, cookie.length);
             }
         }
