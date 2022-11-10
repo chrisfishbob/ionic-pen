@@ -31,7 +31,6 @@ function ControlledCarousel(props) {
         booksOnPage.push({isDummy: true});
       }
       booksByPage.push(booksOnPage);
-      console.log(booksOnPage);
     }
   }
  
@@ -53,8 +52,7 @@ function ControlledCarousel(props) {
                       className="carousel-cover-image"
                       width="100"
                       height="180"
-                      src = "https://upload.wikimedia.org/wikipedia/commons/8/89/HD_transparent_picture.png"
-                      style={{color: 'rgba(0, 0, 0, 0)', border: 0}}
+                      src="https://upload.wikimedia.org/wikipedia/commons/8/89/HD_transparent_picture.png"
                     />
                 return <Link to={`/book/${book.book_id}`} key={book.book_id}>
                   <img

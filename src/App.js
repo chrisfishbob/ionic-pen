@@ -6,6 +6,7 @@ import { Route, Routes, Navigate } from "react-router-dom";
 import Session from "./Session";
 import Catalog from "./pages/catalog/catalog.component";
 import Profile from"./pages/user_profile/profile.component";
+import SearchPage from "./pages/search/search.component";
 
 function Logout() {
   Session.logoutUser();
@@ -18,6 +19,7 @@ function App() {
       <Route path="/" element={<Home />} />
       <Route path="/login" element={<Login />} />
       <Route path="/logout" element={<Logout />} />
+      <Route path="/search" element={<SearchPage />} />
       <Route path="/catalog" element={<Catalog />} />
       <Route path="/book-details" element={<BookDetail />} />
       <Route path="/book/:book_id" element={<BookDetail />} />

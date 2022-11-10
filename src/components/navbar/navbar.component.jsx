@@ -6,18 +6,16 @@ import Navbar from "react-bootstrap/Navbar";
 import Image from "react-bootstrap/Image";
 import { useState } from "react";
 import { LinkContainer } from "react-router-bootstrap";
-import { Link } from "react-router-dom";
-
-import IonicPenAPI from "../../IonicPenAPI";
+import { Link, useNavigate } from "react-router-dom";
 
 function NavBar() {
+  let navigate = useNavigate();
   const [value, setValue] = useState("");
   const onInput = ({ target: { value } }) => setValue(value);
   async function onFormSubmit(e) {
     e.preventDefault();
     try {
-      const response = await IonicPenAPI.search(value);
-      console.log(response);
+      navigate(`/search?q=${value}`);
     } catch (error) {
       console.log(error);
     }
