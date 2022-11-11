@@ -35,6 +35,7 @@ function SearchPage() {
     const searchQuery = urlParams.get('q');
     useEffect(() => {
         IonicPenAPI.search(searchQuery).then((response) => {
+            console.log(response);
             setSearchResponse({
                 users: generateUsersCarouselObjects(response.users),
                 books: response.books
