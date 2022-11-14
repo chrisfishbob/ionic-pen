@@ -1,6 +1,9 @@
 # Ionic Pen
 Source code repository for the Ionic Pen project.
 
+# See Ionic Pen in Action
+https://ionicpen.ml
+
 # FIGMA Design Link
 https://www.figma.com/file/c8UHVgMAIyej0bX7prE2wl/Ionic-Pen?node-id=1%3A16
 
