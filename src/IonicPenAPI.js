@@ -53,8 +53,13 @@ class IonicPenAPI {
     }
 
     static async search(query) {
+        let authKey = Session.getCookie('auth-key');
         try {
-            const response = await axios.get(`${BASE_URL}/api/search/?q=${query}`);
+            const response = await axios.get(`${BASE_URL}/api/search/?q=${query}`, {
+                headers: {
+                    'auth-key': authKey
+                }
+            });
             return response.data;
         } catch (err) {
             console.log(err);
