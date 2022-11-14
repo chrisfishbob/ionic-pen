@@ -4,7 +4,7 @@ import config from './config';
 
 const { api: { host }} = config;
 
-const BASE_URL = 'http://127.0.0.1:3200';//`https://${host}`;
+const BASE_URL = `https://${host}`;
 
 class IonicPenAPI {
     static async login(username, password) {
