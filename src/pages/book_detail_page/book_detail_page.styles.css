@@ -1,0 +1,58 @@
+.book-detail {
+    height: 2%;
+    width: 100%;
+    background-color: #E6E6E6;
+    position: fixed;
+    bottom: 0;
+    text-align: center;
+    font-size: small;
+}
+.top {
+    display: block;
+    overflow: auto;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+.down {
+    margin-left: 10%;
+    margin-right: 10%;
+}
+.left {
+    float: left;
+}
+.recently-updated-cover-image {
+    margin-left: 40px;
+    margin-right: 40px;
+}
+.read {
+    text-align: center;
+}
+.review {
+    color: dodgerblue;
+}
+.header_corner {
+    float: right;
+    text-align: right;
+    font-size: 30pt;
+}
+.footer_corner{
+    text-align: right;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+.readmore {
+    cursor: pointer;
+    color: dodgerblue;
+    text-decoration: underline;
+}
+.readmore:hover {
+    text-decoration: none;
+}
+.reviewer {
+    font-size: x-small;
+    vertical-align: text-top;
+    margin-top: 0;
+}
+.comment {
+    font-size: 14px;
+}
