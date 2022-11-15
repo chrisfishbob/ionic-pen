@@ -1,14 +1,17 @@
-import "bootstrap/dist/css/bootstrap.min.css";
-import Home from "./pages/home/home.component";
-import Login from "./pages/login_page/login.component";
-import BookDetail from "./pages/book_detail/book_detail.component";
-import { Route, Routes, Navigate } from "react-router-dom";
-import Session from "./Session";
-import Catalog from "./pages/catalog/catalog.component";
-import Profile from"./pages/user_profile/profile.component";
-import SearchPage from "./pages/search/search.component";
+import HomePage from "./pages/home_page/home_page.component";
+import LoginPage from "./pages/login_page/login_page.component";
+import SearchPage from "./pages/search_page/search_page.component";
+import ProfilePage from"./pages/profile_page/profile_page.component";
+import CatalogPage from "./pages/catalog_page/catalog_page.component";
+import BookDetailPage from "./pages/book_detail_page/book_detail_page.component";
 
-function Logout() {
+import Session from "./Session";
+
+import { Route, Routes, Navigate } from "react-router-dom";
+
+import "bootstrap/dist/css/bootstrap.min.css";
+
+function LogoutPage() {
   Session.logoutUser();
   return <Navigate to="/login" />;
 }
@@ -16,14 +19,13 @@ function Logout() {
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/logout" element={<Logout />} />
+      <Route path="/" element={<HomePage />} />
+      <Route path="/login" element={<LoginPage />} />
+      <Route path="/logout" element={<LogoutPage />} />
       <Route path="/search" element={<SearchPage />} />
-      <Route path="/catalog" element={<Catalog />} />
-      <Route path="/book-details" element={<BookDetail />} />
-      <Route path="/book/:book_id" element={<BookDetail />} />
-      <Route path="/profile" element={<Profile />} />
+      <Route path="/profile" element={<ProfilePage />} />
+      <Route path="/catalog" element={<CatalogPage />} />
+      <Route path="/book/:book_id" element={<BookDetailPage />} />
     </Routes>
   );
 }

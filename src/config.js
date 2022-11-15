@@ -1,7 +1,7 @@
 const config = {
     api: {
-        host: 'ionic-pen.azurewebsites.net',
-        name: 'IonicPenAPI'
+        host: 'http://127.0.0.1:3200',
+        name: 'IonicPenAPI - Azure'
     }
 };
 

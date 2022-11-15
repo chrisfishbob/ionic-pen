@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from "react";
 import Carousel from "react-bootstrap/Carousel";
+
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+
 import "./books_carousel.styles.css";
 
 function createNestedBooksArray(books, pageSize) {

@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
 import Carousel from "react-bootstrap/Carousel";
-import { Link } from "react-router-dom";
+
+import { useState, useEffect } from "react";
+
 import "./page_carousel.styles.css";
 
 function createNestedArray(objectArray, pageSize) {
