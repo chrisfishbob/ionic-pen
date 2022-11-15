@@ -1,12 +1,13 @@
 
-import PageCarousel from "../../components/page-carousel/page_carousel.component";
 import BooksCarousel from "../../components/books_carousel/books_carousel.component";
-
-import IonicPenAPI from "../../IonicPenAPI";
+import PageCarousel from "../../components/page-carousel/page_carousel.component";
+import Card from "react-bootstrap/Card";
 
 import { useLocation } from 'react-router-dom';
 import { useState, useEffect } from "react";
-import { Card } from "react-bootstrap";
+
+
+import IonicPenAPI from "../../IonicPenAPI";
 
 import "./search_page.styles.css";
 
@@ -39,14 +40,14 @@ function SearchPage() {
                 books: response.books
             });
         });
-    }, []);
+    }, [searchQuery]);
     return (
         <div>
             { searchResponse.users.length > 0 && 
                 <div className="search-container">
                     <h1 className="carousel-text"> Users </h1>
-                    <PageCarousel data={searchResponse.users} 
-                        filler={<div className="fixed-box"></div>} />
+                    <PageCarousel data={ searchResponse.users } 
+                        filler={ <div className="fixed-box"></div> } />
                 </div>
             }
             { searchResponse.books.length > 0 &&

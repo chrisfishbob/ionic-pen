@@ -36,7 +36,7 @@ function App() {
         <Route path="/search" element={<SearchPage />} />
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/catalog" element={<CatalogPage />} />
-        <Route path="/read/:book_id" element={<ReadingPage />} />
+        <Route path="/read/:book_id" element={<ReadingPage loggedIn={loggedIn} />} />
         <Route path="/book/:book_id" element={<BookDetailPage />} />
       </Routes>
       <Footer />

@@ -1,7 +1,10 @@
-import GreyBubble from "../../components/grey_bubble/grey.bubble.component";
-import IonicPenAPI from "../../IonicPenAPI";
 import BooksCarousel from "../../components/books_carousel/books_carousel.component";
+import GreyBubble from "../../components/grey_bubble/grey.bubble.component";
+
 import { useState, useEffect } from "react";
+
+import IonicPenAPI from "../../IonicPenAPI";
+
 import "./home_page.styles.css";
 
 function HomePage() {
@@ -27,15 +30,15 @@ function HomePage() {
 
   return (
     <div>
-      { profile.username && <h4 className="welcome-text"> Welcome {profile.username} </h4> }
+      { profile.username && <h4 className="welcome-text"> Welcome { profile.username } </h4> }
       <GreyBubble />
       { library.length > 0 && <div>
           <h1 className="carousel-text">Library</h1>
-          <BooksCarousel books={library} />
+          <BooksCarousel books={ library } />
         </div> 
       }
       <h1 className="carousel-text">All Books</h1>
-      <BooksCarousel books={books} />
+      <BooksCarousel books={ books } />
     </div>
   );
 }

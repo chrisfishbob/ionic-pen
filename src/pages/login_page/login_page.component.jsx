@@ -6,11 +6,11 @@ import Card from "react-bootstrap/Card";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
-import IonicPenAPI from "../../IonicPenAPI";
-import Session from "../../Session";
-
 import { Navigate, useNavigate } from "react-router-dom";
 import { useState } from "react";
+
+import IonicPenAPI from "../../IonicPenAPI";
+import Session from "../../Session";
 
 import "./login_page.styles.css";
 
@@ -22,8 +22,8 @@ function LoginPage(props) {
     password: "",
   };
 
-  const [form, setForm] = useState(login_form);
   const [errorText, setErrorText] = useState("");
+  const [form, setForm] = useState(login_form);
 
   function onFieldInput(field, { target: { value } }) {
     let updatedForm = {...form};
@@ -46,8 +46,8 @@ function LoginPage(props) {
       }).catch((err) => {
         setErrorText(err.message);
       });
-    } catch (error) {
-      console.log(error);
+    } catch (err) {
+      console.log(err);
     } 
   }
 
@@ -60,14 +60,15 @@ function LoginPage(props) {
       <Row style={{ height: "100vh", 'margin-top': '5%' }}>
         <Col></Col>
         <Col>
-          {errorText && 
-          <Alert key="login-error" variant="danger">
-            {errorText}
-          </Alert>}
+          { errorText && 
+            <Alert key="login-error" variant="danger">
+              { errorText }
+            </Alert>
+          }
           <Card className="login-card">
             <Card.Title className="login-text"> LOGIN </Card.Title>
             <Card.Body>
-              <Form onSubmit={onFormSubmit}>
+              <Form onSubmit={ onFormSubmit }>
                 <Form.Group className="mb-3" controlId="formBasicUsername">
                   <Form.Control
                     className="input-field"

@@ -8,7 +8,7 @@ function GreyBubble() {
     <div>
       <div className="grey-bubble-container">
         <div className="book-image-container">
-          <Link to="/book-details">
+          <Link to="#">
             <img
               className="book-image"
               src="https://ionic-pen-public-assets.s3.amazonaws.com/book_cover_8.png"

@@ -1,6 +1,6 @@
 function CatalogPage() {
   return (
-    <div>
+    <div style={{ margin: "2%" }}>
       <h1> Catalog </h1>
     </div>
   );

@@ -5,8 +5,8 @@ import Image from "react-bootstrap/Image";
 import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 
-import { LinkContainer } from "react-router-bootstrap";
 import { Link, useNavigate, useLocation } from "react-router-dom";
+import { LinkContainer } from "react-router-bootstrap";
 import { useState } from "react";
 
 function NavBar(props) {
@@ -22,8 +22,8 @@ function NavBar(props) {
       if (location.pathname === '/search') {
         navigate(0);
       }
-    } catch (error) {
-      console.log(error);
+    } catch (err) {
+      console.log(err);
     }
     setQuery("");
   }

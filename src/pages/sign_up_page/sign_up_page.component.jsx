@@ -38,7 +38,6 @@ function SignUpPage(props) {
   async function onFormSubmit(event) {
     event.preventDefault();
     try {
-      console.log(form);
       if (!form.first_name) {
         setErrorText("First name cannot be empty");
         return;
@@ -55,7 +54,6 @@ function SignUpPage(props) {
         setErrorText("Passwords must match");
         return;
       }
-      
       IonicPenAPI.signup(form.username, form.first_name, form.last_name, 
           form.email_id, form.password).then((res) => {
         setForm(sign_up_form);
@@ -66,8 +64,8 @@ function SignUpPage(props) {
       }).catch((err) => {
         setErrorText(err.message);
       });
-    } catch (error) {
-      console.log(error);
+    } catch (err) {
+      console.log(err);
     } 
   }
 
@@ -80,14 +78,15 @@ function SignUpPage(props) {
       <Row style={{ height: "100vh", 'margin-top': '5%' }}>
         <Col></Col>
         <Col>
-          {errorText && 
-          <Alert key="login-error" variant="danger">
-            {errorText}
-          </Alert>}
+          { errorText && 
+            <Alert key="login-error" variant="danger">
+              { errorText }
+            </Alert>
+          }
           <Card className="login-card">
             <Card.Title className="login-text"> SIGN UP </Card.Title>
             <Card.Body>
-              <Form onSubmit={onFormSubmit}>
+              <Form onSubmit={ onFormSubmit }>
                 <Row>
                   <Col>
                     <Form.Group className="mb-3" controlId="formBasicFirstName">
@@ -96,8 +95,8 @@ function SignUpPage(props) {
                         className="input-field"
                         type="text"
                         placeholder="First name"
-                        onChange={(event) => { onFieldInput("first_name", event) }}
-                        value={form.first_name}
+                        onChange={ (event) => { onFieldInput("first_name", event) }}
+                        value={ form.first_name }
                       />
                     </Form.Group>
                   </Col>
@@ -108,8 +107,8 @@ function SignUpPage(props) {
                         className="input-field"
                         type="text"
                         placeholder="Last name"
-                        onChange={(event) => { onFieldInput("last_name", event) }}
-                        value={form.last_name}
+                        onChange={ (event) => { onFieldInput("last_name", event) }}
+                        value={ form.last_name }
                       />
                     </Form.Group>
                   </Col>
@@ -120,8 +119,8 @@ function SignUpPage(props) {
                     className="input-field"
                     type="text"
                     placeholder="Email ID"
-                    onChange={(event) => { onFieldInput("email_id", event) }}
-                    value={form.email_id}
+                    onChange={ (event) => { onFieldInput("email_id", event) }}
+                    value={ form.email_id }
                   />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicUsername">
@@ -130,8 +129,8 @@ function SignUpPage(props) {
                     className="input-field"
                     type="text"
                     placeholder="Username"
-                    onChange={(event) => { onFieldInput("username", event) }}
-                    value={form.username}
+                    onChange={ (event) => { onFieldInput("username", event) }}
+                    value={ form.username }
                   />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicPassword">
@@ -140,8 +139,8 @@ function SignUpPage(props) {
                     className="input-field"
                     type="password"
                     placeholder="Password"
-                    onChange={(event) => { onFieldInput("password", event) }}
-                    value={form.password}
+                    onChange={ (event) => { onFieldInput("password", event) }}
+                    value={ form.password }
                   />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicVerifyPassword">
@@ -150,8 +149,8 @@ function SignUpPage(props) {
                     className="input-field"
                     type="password"
                     placeholder="Confirm Password"
-                    onChange={(event) => { onFieldInput("verify_password", event) }}
-                    value={form.verify_password}
+                    onChange={ (event) => { onFieldInput("verify_password", event) }}
+                    value={ form.verify_password }
                   />
                 </Form.Group>
                 <Button variant="primary" type="submit">

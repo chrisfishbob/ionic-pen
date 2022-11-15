@@ -82,25 +82,62 @@ class IonicPenAPI {
         return response;
     }
 
-    static async search(query) {
+    static async getBookmark(book_id) {
         let authKey = Session.getCookie('auth-key');
+        let response = {};
         try {
-            const response = await axios.get(`${BASE_URL}/api/search/?q=${query}`, {
+            let result = await axios.get(`${BASE_URL}/api/bookmark/get/${book_id}/`, {
                 headers: {
                     'auth-key': authKey
                 }
             });
-            return response.data;
+            if (result) {
+                response = result.data;
+            }
         } catch (err) {
             console.log(err);
         }
-        return {};
+        return response;
     }
 
-    static async getBookChapter(book_id, chapter_number) {
+    static async setBookmark(book_id, chapter_ind) {
+        let authKey = Session.getCookie('auth-key');
+        let response = {};
+        try {
+            let result = await axios.post(`${BASE_URL}/api/bookmark/set/`, {
+                book_id, book_id,
+                chapter_ind: chapter_ind
+            }, {
+                headers: {
+                    'auth-key': authKey
+                }
+            });
+            if (result) {
+                response = result.data;
+            }
+        } catch (err) {
+            console.log(err);
+        }
+        return response;
+    }
+
+    static async getBookChapter(chapter_id) {
+        let response = {};
+        try {
+            let result = await axios.get(`${BASE_URL}/api/books/read/${chapter_id}/`);
+            if (result) {
+                response = result.data;
+            }
+        } catch (err) {
+            console.log(err);
+        }
+        return response;
+    }
+
+    static async search(query) {
         let authKey = Session.getCookie('auth-key');
         try {
-            const response = await axios.get(`${BASE_URL}/api/books/read/${book_id}/${chapter_number}`, {
+            const response = await axios.get(`${BASE_URL}/api/search/?q=${query}`, {
                 headers: {
                     'auth-key': authKey
                 }
