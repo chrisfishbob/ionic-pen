@@ -5,28 +5,38 @@ import ProfilePage from"./pages/profile_page/profile_page.component";
 import CatalogPage from "./pages/catalog_page/catalog_page.component";
 import BookDetailPage from "./pages/book_detail_page/book_detail_page.component";
 
-import Session from "./Session";
+import NavBar from "./components/navbar/navbar.component";
+import Footer from "./components/footer/footer.component";
 
-import { Route, Routes, Navigate } from "react-router-dom";
+import Session from "./Session";
+import { useState } from "react";
+import { Route, Routes, Navigate, useNavigate } from "react-router-dom";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
-function LogoutPage() {
+function LogoutPage(props) {
   Session.logoutUser();
+  props.setLoginStatus(false);
   return <Navigate to="/login" />;
 }
 
 function App() {
+  const [loggedIn, setLoggedIn] = useState(Session.isLoggedIn());
+
   return (
-    <Routes>
-      <Route path="/" element={<HomePage />} />
-      <Route path="/login" element={<LoginPage />} />
-      <Route path="/logout" element={<LogoutPage />} />
-      <Route path="/search" element={<SearchPage />} />
-      <Route path="/profile" element={<ProfilePage />} />
-      <Route path="/catalog" element={<CatalogPage />} />
-      <Route path="/book/:book_id" element={<BookDetailPage />} />
-    </Routes>
+    <div>
+      <NavBar loggedIn={loggedIn} />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/login" element={<LoginPage setLoginStatus={setLoggedIn} />} />
+        <Route path="/logout" element={<LogoutPage setLoginStatus={setLoggedIn} />} />
+        <Route path="/search" element={<SearchPage />} />
+        <Route path="/profile" element={<ProfilePage />} />
+        <Route path="/catalog" element={<CatalogPage />} />
+        <Route path="/book/:book_id" element={<BookDetailPage />} />
+      </Routes>
+      <Footer />
+    </div>
   );
 }
 

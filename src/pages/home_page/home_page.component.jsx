@@ -1,11 +1,7 @@
-import NavBar from "../../components/navbar/navbar.component";
-import Footer from "../../components/footer/footer.component";
 import GreyBubble from "../../components/grey_bubble/grey.bubble.component";
 import IonicPenAPI from "../../IonicPenAPI";
 import BooksCarousel from "../../components/books_carousel/books_carousel.component";
 import { useState, useEffect } from "react";
-import Session from "../../Session";
-import { Navigate } from "react-router-dom";
 import "./home_page.styles.css";
 
 function HomePage() {
@@ -29,20 +25,17 @@ function HomePage() {
     });
   }, []);
 
-  if (!Session.isLoggedIn()) {
-    return <Navigate to="/login" />;
-  }
-
   return (
     <div>
-      <NavBar />
-      <h4 className="welcome-text"> Welcome {profile.username} </h4>
+      { profile.username && <h4 className="welcome-text"> Welcome {profile.username} </h4> }
       <GreyBubble />
-      <h1 className="carousel-text">Library</h1>
-      <BooksCarousel books={library} />
+      { library.length > 0 && <div>
+          <h1 className="carousel-text">Library</h1>
+          <BooksCarousel books={library} />
+        </div> 
+      }
       <h1 className="carousel-text">All Books</h1>
       <BooksCarousel books={books} />
-      <Footer />
     </div>
   );
 }

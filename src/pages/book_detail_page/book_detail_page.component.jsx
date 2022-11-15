@@ -1,8 +1,6 @@
-import NavScrollExample from "../../components/navbar/navbar.component";
 import React, {useState, useEffect} from "react";
-import Session from "../../Session";
 import IonicPenAPI from "../../IonicPenAPI";
-import { useParams, Navigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import "./book_detail_page.styles.css";
 
 function BookDetailPage() {
@@ -66,13 +64,8 @@ function BookDetailPage() {
     });
   }, []);
 
-  if (!Session.isLoggedIn()) {
-    return <Navigate to="/login" />;
-  }
-
   return (
     <div>
-        <NavScrollExample/>
         <div className="top">
             <div className="left"> 
                 <img

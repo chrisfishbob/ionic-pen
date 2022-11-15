@@ -1,18 +1,19 @@
-import IonicPenAPI from "../../IonicPenAPI";
-import "./login_page.styles.css";
-
+import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Card from "react-bootstrap/Card";
-import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
-import { useState, useEffect } from "react";
+import IonicPenAPI from "../../IonicPenAPI";
 import Session from "../../Session";
-import { Navigate, useNavigate } from "react-router-dom";
 
-function LoginPage() {
+import { Navigate, useNavigate } from "react-router-dom";
+import { useState } from "react";
+
+import "./login_page.styles.css";
+
+function LoginPage(props) {
   const navigate = useNavigate();
 
   const [form, setForm] = useState({
@@ -38,22 +39,25 @@ function LoginPage() {
     event.preventDefault();
     try {
       IonicPenAPI.login(form.username, form.password).then((res) => {
+        setForm({
+          username: "",
+          password: "",
+        });
         if (res) {
+          props.setLoginStatus(true);
           navigate("/");
         }
       });
     } catch (error) {
       console.log(error);
     }
-    setForm({
-      username: "",
-      password: "",
-    });
+    
   }
 
   if (Session.isLoggedIn()) {
     return <Navigate to="/" />;
   }
+  
   let mt = [0, 0, 0, 0, 0, 0];
   return (
     <Container>
@@ -63,8 +67,7 @@ function LoginPage() {
       <Row style={{ height: "100vh" }}>
         <Col></Col>
         <Col>
-          {/* <div className="login-text">LOGIN</div> */}
-          <Card className="card-style">
+          <Card className="login-card">
             <Card.Title className="login-text"> LOGIN </Card.Title>
             <Card.Body>
               <Form onSubmit={onFormSubmit}>

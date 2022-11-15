@@ -6,21 +6,26 @@ import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 
 import { LinkContainer } from "react-router-bootstrap";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useState } from "react";
 
-function NavBar() {
+function NavBar(props) {
+  const [query, setQuery] = useState("");
   let navigate = useNavigate();
-  const [value, setValue] = useState("");
-  const onInput = ({ target: { value } }) => setValue(value);
-  async function onFormSubmit(e) {
+
+  const location = useLocation();
+
+  async function performSearch(e) {
     e.preventDefault();
     try {
-      navigate(`/search?q=${value}`);
+      navigate(`/search?q=${query}`);
+      if (location.pathname === '/search') {
+        navigate(0);
+      }
     } catch (error) {
       console.log(error);
     }
-    setValue("");
+    setQuery("");
   }
 
   return (
@@ -50,18 +55,24 @@ function NavBar() {
               <Nav.Link>Catalog</Nav.Link>
             </LinkContainer>
 
-            <LinkContainer to="/logout">
-              <Nav.Link>Logout</Nav.Link>
-            </LinkContainer>
+            {props.loggedIn? 
+              <LinkContainer to="/logout">
+                <Nav.Link>Logout</Nav.Link>
+              </LinkContainer> : 
+              <LinkContainer to="/login">
+                <Nav.Link>Login</Nav.Link>
+              </LinkContainer>
+            }
+            
           </Nav>
-          <Form className="d-flex" onSubmit={onFormSubmit}>
+          <Form className="d-flex" onSubmit={performSearch}>
             <Form.Control
               type="text"
               placeholder="Search"
               className="me-2"
               aria-label="Search"
-              onChange={onInput}
-              value={value || ""}
+              onChange={({ target: { value } }) => setQuery(value)}
+              value={query || ""}
             />
             <p>&nbsp;&nbsp;</p>
 
