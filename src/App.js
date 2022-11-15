@@ -4,6 +4,7 @@ import SignUpPage from "./pages/sign_up_page/sign_up_page.component";
 import SearchPage from "./pages/search_page/search_page.component";
 import ProfilePage from"./pages/profile_page/profile_page.component";
 import CatalogPage from "./pages/catalog_page/catalog_page.component";
+import ReadingPage from "./pages/reading_page/reading_page.component";
 import BookDetailPage from "./pages/book_detail_page/book_detail_page.component";
 
 import NavBar from "./components/navbar/navbar.component";
@@ -35,6 +36,7 @@ function App() {
         <Route path="/search" element={<SearchPage />} />
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/catalog" element={<CatalogPage />} />
+        <Route path="/read/:book_id" element={<ReadingPage />} />
         <Route path="/book/:book_id" element={<BookDetailPage />} />
       </Routes>
       <Footer />

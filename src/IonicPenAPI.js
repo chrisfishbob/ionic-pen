@@ -96,6 +96,21 @@ class IonicPenAPI {
         }
         return {};
     }
+
+    static async getBookChapter(book_id, chapter_number) {
+        let authKey = Session.getCookie('auth-key');
+        try {
+            const response = await axios.get(`${BASE_URL}/api/books/read/${book_id}/${chapter_number}`, {
+                headers: {
+                    'auth-key': authKey
+                }
+            });
+            return response.data;
+        } catch (err) {
+            console.log(err);
+        }
+        return {};
+    }
 }
 
 export default IonicPenAPI;
