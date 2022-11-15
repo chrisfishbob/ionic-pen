@@ -30,7 +30,7 @@ function BookDetailPage() {
   }, [book_id]);
 
   return (
-    <div>
+    <div style={{ marginTop: "2%" }}>
         <div className="top">
             <div className="left"> 
                 <img
