@@ -1,9 +1,10 @@
 import React, {useState, useEffect} from "react";
 import IonicPenAPI from "../../IonicPenAPI";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import "./book_detail_page.styles.css";
 
 function BookDetailPage() {
+  let navigate = useNavigate();
   const bookData = {
     cover_image:
       "https://ionic-pen-public-assets.s3.amazonaws.com/book_cover_1.jpeg",
@@ -74,7 +75,9 @@ function BookDetailPage() {
                         width="100"
                         height="180"
                     />
-                <p className="read">Start Reading</p>
+                <p className="read">
+                  <a href={`/read/${book_id}`}>Start Reading</a>
+                </p>
             </div>
             <div className="header_corner">
                 ♡
