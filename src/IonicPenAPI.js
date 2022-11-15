@@ -8,6 +8,7 @@ const BASE_URL = host;
 
 class IonicPenAPI {
     static async login(username, password) {
+        let errorText = null;
         try {
             const response = await axios.post(`${BASE_URL}/api/login/`, {
                 username: username,
@@ -18,8 +19,37 @@ class IonicPenAPI {
                 Session.setCookie('auth-key', authKey, 28);
                 return true;
             }
+            errorText = response.data.error;
         } catch (err) {
             console.log(err);
+        }
+        if (errorText) {
+            throw new Error(errorText);
+        }
+        return false;
+    }
+
+    static async signup(username, firstName, lastName, emailID, password) {
+        let errorText = null;
+        try {
+            const response = await axios.post(`${BASE_URL}/api/signup/`, {
+                username: username,
+                first_name: firstName,
+                last_name: lastName,
+                email_id: emailID,
+                password: password
+            })
+            let authKey = response.data['auth-key'];
+            if (authKey) {
+                Session.setCookie('auth-key', authKey, 28);
+                return true;
+            }
+            errorText = response.data.error;
+        } catch (err) {
+            console.log(err);
+        }
+        if (errorText) {
+            throw new Error(errorText);
         }
         return false;
     }

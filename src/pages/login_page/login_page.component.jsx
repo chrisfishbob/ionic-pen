@@ -1,5 +1,6 @@
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
+import Alert from 'react-bootstrap/Alert';
 import Form from "react-bootstrap/Form";
 import Card from "react-bootstrap/Card";
 import Row from "react-bootstrap/Row";
@@ -16,23 +17,18 @@ import "./login_page.styles.css";
 function LoginPage(props) {
   const navigate = useNavigate();
 
-  const [form, setForm] = useState({
+  const login_form = {
     username: "",
     password: "",
-  });
+  };
 
-  function onUsernameInput({ target: { value } }) {
-    setForm({
-      username: value,
-      password: form.password,
-    });
-  }
+  const [form, setForm] = useState(login_form);
+  const [errorText, setErrorText] = useState("");
 
-  function onPasswordInput({ target: { value } }) {
-    setForm({
-      username: form.username,
-      password: value,
-    });
+  function onFieldInput(field, { target: { value } }) {
+    let updatedForm = {...form};
+    updatedForm[field] = value;
+    setForm(updatedForm);
   }
 
   async function onFormSubmit(event) {
@@ -47,26 +43,27 @@ function LoginPage(props) {
           props.setLoginStatus(true);
           navigate("/");
         }
+      }).catch((err) => {
+        setErrorText(err.message);
       });
     } catch (error) {
       console.log(error);
-    }
-    
+    } 
   }
 
   if (Session.isLoggedIn()) {
     return <Navigate to="/" />;
   }
   
-  let mt = [0, 0, 0, 0, 0, 0];
   return (
     <Container>
-      {mt.map(() => {
-        return <br></br>;
-      })}
-      <Row style={{ height: "100vh" }}>
+      <Row style={{ height: "100vh", 'margin-top': '5%' }}>
         <Col></Col>
         <Col>
+          {errorText && 
+          <Alert key="login-error" variant="danger">
+            {errorText}
+          </Alert>}
           <Card className="login-card">
             <Card.Title className="login-text"> LOGIN </Card.Title>
             <Card.Body>
@@ -76,7 +73,7 @@ function LoginPage(props) {
                     className="input-field"
                     type="text"
                     placeholder="email/username"
-                    onChange={onUsernameInput}
+                    onChange={(event) => { onFieldInput("username", event) }}
                     value={form.username}
                   />
                 </Form.Group>
@@ -85,7 +82,7 @@ function LoginPage(props) {
                     className="input-field"
                     type="password"
                     placeholder="password"
-                    onChange={onPasswordInput}
+                    onChange={(event) => { onFieldInput("password", event) }}
                     value={form.password}
                   />
                 </Form.Group>
@@ -95,6 +92,11 @@ function LoginPage(props) {
               </Form>
             </Card.Body>
           </Card>
+          <div>
+            <center>
+              Don't have an account? <a href="/signup" style={{'text-decoration': 'none'}}>Sign Up</a> here!
+            </center>
+          </div>
         </Col>
         <Col></Col>
       </Row>

@@ -1,5 +1,6 @@
 import HomePage from "./pages/home_page/home_page.component";
 import LoginPage from "./pages/login_page/login_page.component";
+import SignUpPage from "./pages/sign_up_page/sign_up_page.component";
 import SearchPage from "./pages/search_page/search_page.component";
 import ProfilePage from"./pages/profile_page/profile_page.component";
 import CatalogPage from "./pages/catalog_page/catalog_page.component";
@@ -10,7 +11,7 @@ import Footer from "./components/footer/footer.component";
 
 import Session from "./Session";
 import { useState } from "react";
-import { Route, Routes, Navigate, useNavigate } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -30,6 +31,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<LoginPage setLoginStatus={setLoggedIn} />} />
         <Route path="/logout" element={<LogoutPage setLoginStatus={setLoggedIn} />} />
+        <Route path="/signup" element={<SignUpPage setLoginStatus={setLoggedIn} />} />
         <Route path="/search" element={<SearchPage />} />
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/catalog" element={<CatalogPage />} />

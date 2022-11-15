@@ -82,7 +82,7 @@ function NavBar(props) {
 
             <p>&nbsp;&nbsp;</p>
 
-            <Button variant="outline-*" size="sm">
+            <Button variant="outline-*" size="sm" href="/profile">
               <Image
                 src="https://ionic-pen-public-assets.s3.amazonaws.com/profile.jpeg"
                 width="40"
