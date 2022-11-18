@@ -1,11 +1,10 @@
 
 import BooksCarousel from "../../components/books_carousel/books_carousel.component";
-import PageCarousel from "../../components/page-carousel/page_carousel.component";
+import PageCarousel from "../../components/page_carousel/page_carousel.component";
 import Card from "react-bootstrap/Card";
 
 import { useLocation } from 'react-router-dom';
 import { useState, useEffect } from "react";
-
 
 import IonicPenAPI from "../../IonicPenAPI";
 

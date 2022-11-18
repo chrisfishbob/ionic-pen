@@ -3,10 +3,10 @@ import Offcanvas from 'react-bootstrap/Offcanvas';
 import Button from "react-bootstrap/Button";
 import Card from 'react-bootstrap/Card';
 
-import IonicPenAPI from "../../IonicPenAPI";
-
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from 'react';
+
+import IonicPenAPI from "../../IonicPenAPI";
 
 function ReadingPage(props) {
     const { book_id } = useParams();
@@ -39,7 +39,7 @@ function ReadingPage(props) {
 
     useEffect(() => {
         IonicPenAPI.getBookDetails(book_id).then((res) => {
-            setBookData(res);
+            setBookData(res.book);
             if (props.loggedIn) {
                 IonicPenAPI.getBookmark(book_id).then((res) => {
                     if (res && res.chapter_ind) {

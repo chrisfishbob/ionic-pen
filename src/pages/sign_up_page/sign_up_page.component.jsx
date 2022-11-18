@@ -6,11 +6,11 @@ import Card from "react-bootstrap/Card";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
-import IonicPenAPI from "../../IonicPenAPI";
-import Session from "../../Session";
-
 import { Navigate, useNavigate } from "react-router-dom";
 import { useState } from "react";
+
+import IonicPenAPI from "../../IonicPenAPI";
+import Session from "../../Session";
 
 import "./sign_up_page.styles.css";
 

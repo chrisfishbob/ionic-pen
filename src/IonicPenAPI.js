@@ -69,10 +69,32 @@ class IonicPenAPI {
         return response;
     }
 
-    static async getBookDetails(bookId) {
+    static async getProfile(profile) {
+        let authKey = Session.getCookie('auth-key');
         let response = {};
         try {
-            let result = await axios.get(`${BASE_URL}/api/books/${bookId}/`);
+            if (!profile) {
+                response = await axios.get(`${BASE_URL}/api/profile/`, {
+                    headers: {
+                        'auth-key': authKey
+                    }
+                });
+            }
+        } catch (err) {
+            console.log(err);
+        }
+        return response;
+    }
+
+    static async getBookDetails(bookId) {
+        let authKey = Session.getCookie('auth-key');
+        let response = {};
+        try {
+            let result = await axios.get(`${BASE_URL}/api/books/${bookId}/`, {
+                headers: {
+                'auth-key': authKey
+                }
+            });
             if (result) {
                 response = result.data;
             }

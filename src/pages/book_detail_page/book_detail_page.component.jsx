@@ -1,12 +1,12 @@
-import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 
 import IonicPenAPI from "../../IonicPenAPI";
 
 import "./book_detail_page.styles.css";
 
 function BookDetailPage() {
-  let { book_id } = useParams();
+  const { book_id } = useParams();
   const [book, setBook] = useState({
     cover_image:"",
     book_title: "",
@@ -17,14 +17,17 @@ function BookDetailPage() {
     chapters: [],
     likes: [],
     synopsis: "",
-    reviews: [],
+    reviews: []
   });
+  const [editable, setEditable] = useState(false);
   const [readmore, setReadMore] = useState(false);
 
   useEffect(() => {
     IonicPenAPI.getBookDetails(book_id).then((response) => {
       if (response) {
-        setBook(response);
+        setBook(response.book);
+        setEditable(response.is_author);
+
       }
     });
   }, [book_id]);
@@ -41,11 +44,14 @@ function BookDetailPage() {
                         alt=""
                     />
                 <p className="read">
-                  <a href={`/read/${book_id}`}>Start Reading</a>
+                  <a href={`/books/read/${book_id}`} style={{textDecoration: 'none'}}>Start Reading</a>
                 </p>
             </div>
             <div className="header_corner">
                 ♡
+                {editable && <div>
+                  <a href={`/books/edit/${book_id}`} style={{textDecoration: 'none'}}>✎</a>
+                </div>}
             </div>
             <div className="right">
                 <p>

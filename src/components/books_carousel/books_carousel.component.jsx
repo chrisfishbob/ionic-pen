@@ -65,7 +65,7 @@ function BooksCarousel(props) {
                       height="180"
                       src="https://upload.wikimedia.org/wikipedia/commons/8/89/HD_transparent_picture.png"
                     />);
-                return (<Link to={`/book/${book.book_id}`} key={book.book_id}>
+                return (<Link to={`/books/info/${book.book_id}`} key={book.book_id}>
                   <img
                     className="carousel-cover-image"
                     src={book.cover_image}

@@ -7,7 +7,9 @@ import CatalogPage from "./pages/catalog_page/catalog_page.component";
 import ReadingPage from "./pages/reading_page/reading_page.component";
 import BookDetailPage from "./pages/book_detail_page/book_detail_page.component";
 import CreateBookPage from "./pages/create_book_page/create_book_page.component";
+import EditBookPage from "./pages/edit_book_page/edit_book_page.component";
 import CreateChapterPage from "./pages/create_chapter_page/create_chapter_page.component";
+import EditChapterPage from "./pages/edit_chapter_page/edit_chapter_page.component";
 
 import NavBar from "./components/navbar/navbar.component";
 import Footer from "./components/footer/footer.component";
@@ -37,11 +39,13 @@ function App() {
         <Route path="/signup" element={<SignUpPage setLoginStatus={setLoggedIn} />} />
         <Route path="/search" element={<SearchPage />} />
         <Route path="/profile" element={<ProfilePage />} />
-        <Route path="/catalog" element={<CatalogPage />} />
-        <Route path="/new/book" element={<CreateBookPage />} />
-        <Route path="/new/chapter/:book_id" element={<CreateChapterPage />} />
-        <Route path="/read/:book_id" element={<ReadingPage loggedIn={loggedIn} />} />
-        <Route path="/book/:book_id" element={<BookDetailPage />} />
+        <Route path="/books" element={<CatalogPage />} />
+        <Route path="/books/new" element={<CreateBookPage />} />
+        <Route path="/books/info/:book_id" element={<BookDetailPage />} />
+        <Route path="/books/edit/:book_id" element={<EditBookPage />} />
+        <Route path="/books/read/:book_id" element={<ReadingPage loggedIn={loggedIn} />} />
+        <Route path="/books/new/chapter/:book_id" element={<CreateChapterPage />} />
+        <Route path="/books/edit/chapter/:book_id" element={<EditChapterPage />} />
       </Routes>
       <Footer />
     </div>

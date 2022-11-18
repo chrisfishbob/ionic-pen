@@ -51,7 +51,7 @@ function NavBar(props) {
               <Nav.Link>Home</Nav.Link>
             </LinkContainer>
 
-            <LinkContainer to="/catalog">
+            <LinkContainer to="/books">
               <Nav.Link>Catalog</Nav.Link>
             </LinkContainer>
 

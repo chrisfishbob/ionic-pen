@@ -3,6 +3,7 @@ import Form from 'react-bootstrap/Form';
 
 import { useNavigate, useParams } from "react-router-dom";
 import { useState, useEffect } from 'react';
+
 import IonicPenAPI from '../../IonicPenAPI';
 
 function CreateChapterPage() {
@@ -25,7 +26,7 @@ function CreateChapterPage() {
 
     useEffect(() => {
         IonicPenAPI.getBookDetails(book_id).then((res) => {
-            setBook(res);
+            setBook(res.book);
         });
     }, [book_id]);
 

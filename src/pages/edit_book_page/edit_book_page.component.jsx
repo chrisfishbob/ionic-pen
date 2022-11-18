@@ -2,25 +2,32 @@ import ImageUploadField from '../../components/image_upload_field/image_upload_f
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
-import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
 import IonicPenAPI from '../../IonicPenAPI';
 
-function CreateBookPage() {
-    const navigate = useNavigate();
+function EditBookPage() {
+    const { book_id } = useParams();
     const [bookTitle, setBookTitle] = useState("");
     const [bookSynopsis, setBookSynopsis] = useState("");
     const [bookCover, setBookCover] = useState(null);
 
     function onFormSubmit(event) {
         event.preventDefault();
-        IonicPenAPI.createNewBook(bookTitle, bookSynopsis, bookCover).then((res) => {
-            if (res.book_id) {
-                navigate(`/book/${res.book_id}`);
-            }
-        });
+        // IonicPenAPI.createNewBook(bookTitle, bookSynopsis, bookCover).then((res) => {
+        //     if (res.book_id) {
+        //         navigate("/book");
+        //     }
+        // });
     }
+
+    useEffect(() => {
+        IonicPenAPI.getBookDetails(book_id).then((res) => {
+            setBookTitle(res.book.book_title);
+            setBookSynopsis(res.book.synopsis);
+        });
+    });
 
     return (<div style={{ margin: "2%" }}>
         <Form onSubmit={ onFormSubmit }>
@@ -45,10 +52,10 @@ function CreateBookPage() {
                 <ImageUploadField onUpload={ setBookCover }/>
             </Form.Group>
             <Button variant="primary" type="submit">
-                Create Book
+                Save Changes
             </Button>
         </Form>
     </div>);
 }
 
-export default CreateBookPage;
+export default EditBookPage;
