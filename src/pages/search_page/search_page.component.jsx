@@ -9,17 +9,20 @@ import { useState, useEffect } from "react";
 import IonicPenAPI from "../../IonicPenAPI";
 
 import "./search_page.styles.css";
+import { Link } from "react-router-dom";
 
 
 function generateUsersCarouselObjects(users) {
   return users.map((user) => {
     return {
         isDummy: false,
-        html:  <Card>
-            <Card.Img variant="top" src="https://ionic-pen-public-assets.s3.amazonaws.com/profile.jpeg" />
-                <Card.Body>{user.username}
-            </Card.Body>
-        </Card>
+        html:  <Link to={`/profile/${user.username}`} style={{textDecoration: 'none', color: 'black'}}>
+                <Card>
+                <Card.Img variant="top" src="https://ionic-pen-public-assets.s3.amazonaws.com/profile.jpeg" />
+                    <Card.Body>{user.username}
+                </Card.Body>
+            </Card>
+        </Link>
     };
   });
 }

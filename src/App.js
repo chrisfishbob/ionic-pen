@@ -39,6 +39,7 @@ function App() {
         <Route path="/signup" element={<SignUpPage setLoginStatus={setLoggedIn} />} />
         <Route path="/search" element={<SearchPage />} />
         <Route path="/profile" element={<ProfilePage />} />
+        <Route path="/profile/:username" element={<ProfilePage />} />
         <Route path="/books" element={<CatalogPage />} />
         <Route path="/books/new" element={<CreateBookPage />} />
         <Route path="/books/info/:book_id" element={<BookDetailPage />} />

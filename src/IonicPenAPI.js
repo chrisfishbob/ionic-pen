@@ -69,17 +69,16 @@ class IonicPenAPI {
         return response;
     }
 
-    static async getProfile(profile) {
+    static async getProfile(username) {
         let authKey = Session.getCookie('auth-key');
         let response = {};
         try {
-            if (!profile) {
-                response = await axios.get(`${BASE_URL}/api/profile/`, {
-                    headers: {
-                        'auth-key': authKey
-                    }
-                });
-            }
+            let result = await axios.get(`${BASE_URL}/api/profile/${username? username: ""}`, {
+                headers: {
+                    'auth-key': authKey
+                }
+            });
+            response = result.data;
         } catch (err) {
             console.log(err);
         }
