@@ -2,7 +2,7 @@ import HomePage from "./pages/home_page/home_page.component";
 import LoginPage from "./pages/login_page/login_page.component";
 import SignUpPage from "./pages/sign_up_page/sign_up_page.component";
 import SearchPage from "./pages/search_page/search_page.component";
-import ProfilePage from"./pages/profile_page/profile_page.component";
+import ProfilePage from "./pages/profile_page/profile_page.component";
 import CatalogPage from "./pages/catalog_page/catalog_page.component";
 import ReadingPage from "./pages/reading_page/reading_page.component";
 import BookDetailPage from "./pages/book_detail_page/book_detail_page.component";
@@ -34,9 +34,18 @@ function App() {
       <NavBar loggedIn={loggedIn} />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/login" element={<LoginPage setLoginStatus={setLoggedIn} />} />
-        <Route path="/logout" element={<LogoutPage setLoginStatus={setLoggedIn} />} />
-        <Route path="/signup" element={<SignUpPage setLoginStatus={setLoggedIn} />} />
+        <Route
+          path="/login"
+          element={<LoginPage setLoginStatus={setLoggedIn} />}
+        />
+        <Route
+          path="/logout"
+          element={<LogoutPage setLoginStatus={setLoggedIn} />}
+        />
+        <Route
+          path="/signup"
+          element={<SignUpPage setLoginStatus={setLoggedIn} />}
+        />
         <Route path="/search" element={<SearchPage />} />
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/profile/:username" element={<ProfilePage />} />
@@ -44,9 +53,18 @@ function App() {
         <Route path="/books/new" element={<CreateBookPage />} />
         <Route path="/books/info/:book_id" element={<BookDetailPage />} />
         <Route path="/books/edit/:book_id" element={<EditBookPage />} />
-        <Route path="/books/read/:book_id" element={<ReadingPage loggedIn={loggedIn} />} />
-        <Route path="/books/new/chapter/:book_id" element={<CreateChapterPage />} />
-        <Route path="/books/edit/chapter/:book_id" element={<EditChapterPage />} />
+        <Route
+          path="/books/read/:book_id"
+          element={<ReadingPage loggedIn={loggedIn} />}
+        />
+        <Route
+          path="/books/new/chapter/:book_id"
+          element={<CreateChapterPage />}
+        />
+        <Route
+          path="/books/edit/chapter/:book_id"
+          element={<EditChapterPage />}
+        />
       </Routes>
       <Footer />
     </div>
