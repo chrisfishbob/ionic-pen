@@ -8,9 +8,11 @@ import Nav from "react-bootstrap/Nav";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { LinkContainer } from "react-router-bootstrap";
 import { useState } from "react";
+import { Dropdown } from "react-bootstrap";
 
 function NavBar(props) {
   const [query, setQuery] = useState("");
+  const [showProfile, setShowProfile] = useState(false);
   let navigate = useNavigate();
 
   const location = useLocation();
@@ -29,7 +31,7 @@ function NavBar(props) {
   }
 
   return (
-    <Navbar bg="light" expand="sm">
+    <Navbar bg="light" expand="sm" style={{ position: "sticky", top: "0"}}>
       <Container fluid>
         <Button variant="outline-*" size="sm" color="#0d6efd">
           <Link to="/">
@@ -54,15 +56,6 @@ function NavBar(props) {
             <LinkContainer to="/books">
               <Nav.Link>Catalog</Nav.Link>
             </LinkContainer>
-
-            {props.loggedIn? 
-              <LinkContainer to="/logout">
-                <Nav.Link>Logout</Nav.Link>
-              </LinkContainer> : 
-              <LinkContainer to="/login">
-                <Nav.Link>Login</Nav.Link>
-              </LinkContainer>
-            }
             
           </Nav>
           <Form className="d-flex" onSubmit={performSearch}>
@@ -81,16 +74,32 @@ function NavBar(props) {
             </Button>
 
             <p>&nbsp;&nbsp;</p>
-
-            <Button variant="outline-*" size="sm" href="/profile">
-              <Image
-                src="https://ionic-pen-public-assets.s3.amazonaws.com/profile.jpeg"
-                width="40"
-                height="40"
-                roundedCircle
-                border="0"
-              />
-            </Button>
+            <Dropdown show={showProfile}
+              onMouseEnter={() => {setShowProfile(true)}} 
+              onMouseLeave={() => {setShowProfile(false)}}>
+              <Button variant="outline-*" size="sm" href="/profile">
+                <Image
+                  src="https://ionic-pen-public-assets.s3.amazonaws.com/profile.jpeg"
+                  width="40"
+                  height="40"
+                  roundedCircle
+                  border="0"
+                />
+              </Button>
+              <Dropdown.Menu show={showProfile} style={{left: "-6em", top: "3em"}}>
+                <Dropdown.Item href="#/action-1">
+                  Action
+                </Dropdown.Item>
+                {props.loggedIn? 
+                  <Dropdown.Item href="/logout">
+                    Logout
+                  </Dropdown.Item> : 
+                  <Dropdown.Item href="/login">
+                    Login
+                  </Dropdown.Item>
+                }
+              </Dropdown.Menu>
+            </Dropdown>
           </Form>
         </Navbar.Collapse>
       </Container>

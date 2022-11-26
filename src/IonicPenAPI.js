@@ -130,7 +130,7 @@ class IonicPenAPI {
     let authKey = Session.getCookie("auth-key");
     let response = {};
     try {
-      let result = await axios.post(
+      let result = await axios.put(
         `${BASE_URL}/api/bookmark/set/`,
         {
           book_id: book_id,

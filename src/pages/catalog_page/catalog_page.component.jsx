@@ -47,7 +47,7 @@ function CatalogPage() {
 
   return (
     <div style={{ margin: "2%" }}>
-      <h1>
+      <h1 style={{ marginLeft: "5%"}}>
         All Books
       </h1>
       <center>

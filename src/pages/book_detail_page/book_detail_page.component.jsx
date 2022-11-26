@@ -48,9 +48,8 @@ function BookDetailPage() {
                 </p>
             </div>
             <div className="header_corner">
-                ♡
                 {editable && <div>
-                  <a href={`/books/edit/${book_id}`} style={{textDecoration: 'none'}}>✎</a>
+                  <a href={`/books/edit/${book_id}`} style={{textDecoration: 'none', color: 'black'}}>✎</a>
                 </div>}
             </div>
             <div className="right">
