@@ -177,6 +177,23 @@ class IonicPenAPI {
     return response;
   }
 
+  static async getRandomBook() {
+    let response = {};
+    try {
+      let result = await axios.get(`${BASE_URL}/api/books/`);
+      if (result) {
+        response = result.data;
+      }
+    } catch (err) {
+      console.log(err);
+    }
+
+    const bookLength = response["books"].length;
+    const randomIndex = Math.floor(Math.random() * bookLength);
+
+    return response["books"][randomIndex];
+  }
+
   static async search(query) {
     let authKey = Session.getCookie("auth-key");
     try {
