@@ -1,3 +1,5 @@
+import ListGroup from "react-bootstrap/listGroup";
+import Offcanvas from "react-bootstrap/Offcanvas";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form"
 
@@ -26,28 +28,90 @@ function EditChapterPage() {
         reviews: [],
     });
 
+    useEffect(() => {
+        setShowChapters(false);
+        if (chapterIndex >= 0) {
+            IonicPenAPI.getBookChapter(book.chapters[chapterIndex].chapter_id).then((res) => {
+                setChapterName(res.chapter_name);
+                setChapterText(res.chapter_contents);
+            });
+        } else {
+            setChapterName("");
+            setChapterText("");
+        }
+    }, [chapterIndex]);
 
     useEffect(() => {
         IonicPenAPI.getBookDetails(book_id).then((res) => {
             setBook(res.book);
             if (res.book.chapters.length > 0) {
-                IonicPenAPI.getBookChapter(res.book.chapters[res.book.chapters.length - 1].chapter_id).then((res) => {
-                    setChapterName(res.chapter_name);
-                    setChapterText(res.chapter_contents);
-                });
+                setChapterIndex(res.book.chapters.length - 1);
             }
         });
     }, [book_id]);
 
     function onFormSubmit(event) {
         event.preventDefault();
-        IonicPenAPI.createNewBookChapter(book_id, chapterName, chapterText).then((res) => {
-            navigate(`/book/${book_id}`);
-        });
+        // IonicPenAPI.createNewBookChapter(book_id, chapterName, chapterText).then((res) => {
+        //     navigate(`/book/${book_id}`);
+        // });
     }
 
     return (<div style={{ margin: "2%" }}>
-        <h1> { book.book_title } </h1>
+        <Offcanvas show={showChapters} onHide={() => setShowChapters(false)}>
+            <Offcanvas.Header closeButton>
+                <Offcanvas.Title>{book.book_title}</Offcanvas.Title>
+            </Offcanvas.Header>
+            <Offcanvas.Body>
+                {book.chapters.length > 0 &&
+                    <ListGroup as="ul">
+                        {book.chapters.map((chapter, ind) => {
+                            const is_hovering = false;
+                        return (ind === chapterIndex)? (
+                            <ListGroup.Item as="li" active>
+                            {chapter.chapter_name}
+                            </ListGroup.Item>
+                        ) : (
+                            <ListGroup.Item
+                            className="list_item"
+                            as="li"
+                            onClick={() => setChapterIndex(ind)}
+                            >
+                            {chapter.chapter_name}
+                            </ListGroup.Item>
+                        );
+                        })}
+                    </ListGroup>
+                }
+                <br/>
+                <ListGroup>
+                    {(chapterIndex == -1)? (
+                        <ListGroup.Item active
+                            className="list_item"
+                            as="li"
+                            onClick={() => setChapterIndex(-1)}
+                            >
+                            Create New Chapter
+                        </ListGroup.Item>
+                        ): (
+                        <ListGroup.Item
+                            className="list_item"
+                            as="li"
+                            onClick={() => setChapterIndex(-1)}
+                            >
+                            Create New Chapter
+                        </ListGroup.Item>)
+                    }
+                </ListGroup>
+            </Offcanvas.Body>
+        </Offcanvas>
+        <Button
+            variant="outline-dark"
+            onClick={() => setShowChapters(true)}
+            style={{ marginBottom: "1%" }}
+        >
+            <h1> {book.book_title} </h1>
+        </Button>
         <Form onSubmit={ onFormSubmit }>
             <Form.Group className="mb-3" controlId="formChapterName">
                 <Form.Label>Chapter Name</Form.Label>
@@ -66,7 +130,7 @@ function EditChapterPage() {
                     value={ chapterText } />
             </Form.Group>
             <Button variant="primary" type="submit">
-                Create Chapter
+                {(chapterIndex == -1)? "New": "Edit"} Chapter
             </Button>
         </Form>
     </div>);
