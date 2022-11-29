@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import IonicPenAPI from "../../IonicPenAPI";
 
 import Button from 'react-bootstrap/Button';
@@ -21,6 +21,7 @@ function ProfileInfoPage() {
 }
 
 function ProfilePage() {
+  const navigate = useNavigate();
   const { username } = useParams();
   const [profile, setProfile] = useState({});
   const [sectionInd, setSelectionInd] = useState(0)
@@ -91,7 +92,7 @@ function ProfilePage() {
           <Row>
             <Col style={{marginLeft:"7em"}}>
               <Button style={{ backgroundColor: "#A1FDC6", border: "none", color:"black", width:"10em"}}
-                variant="outline-primary" onClick={()=>setSelectionInd(3)}> Publish New Story </Button>
+                variant="outline-primary" onClick={() => navigate("/books/new/")}> Publish New Story </Button>
             </Col>
             <Col style={{marginLeft:"4em"}}>
               <Button style={{ backgroundColor: "#A1FDC6", border: "none", color:"black", width:"10em"}}

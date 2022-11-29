@@ -109,7 +109,6 @@ function NavBar(props) {
                 <Dropdown.Item href="/profile">Profile</Dropdown.Item>
                 {props.loggedIn ? (
                   <div>
-                    <Dropdown.Item href="/books/new">New Book</Dropdown.Item>
                     <Dropdown.Item href="/logout">Logout</Dropdown.Item>
                   </div>
                 ) : (

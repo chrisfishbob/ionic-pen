@@ -14,6 +14,7 @@ function EditBookPage() {
     const [bookTitle, setBookTitle] = useState("");
     const [bookSynopsis, setBookSynopsis] = useState("");
     const [bookCover, setBookCover] = useState(null);
+    const [bookGenres, setBookGenres] = useState(null)
 
     useEffect(() => {
         IonicPenAPI.getBookDetails(book_id).then((res) => {
@@ -37,8 +38,8 @@ function EditBookPage() {
         }
     }
 
-    return (<div style={{ margin: "2%" }}>
-        <h1>
+    return (<div style={{ marginTop: "2%", marginRight: "11%", marginLeft: "11%"}}>
+        <h1 style = {{fontFamily: "sans-serif"}}>
             { book_id? "Edit Book Details" : "Create New Book" }
         </h1>
         <Form onSubmit={ onFormSubmit }>
@@ -54,9 +55,16 @@ function EditBookPage() {
                 <Form.Label>Synopsis</Form.Label>
                 <Form.Control 
                     as="textarea" 
-                    placeholder="Enter your Book Synopsis"
+                    placeholder="Give us a few sentences about your book."
                     onChange={ ({ target: { value }}) => { setBookSynopsis(value) } }
                     value={ bookSynopsis } />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formBookTitle">
+                <Form.Label>Genre Tags</Form.Label>
+                <Form.Control
+                    type="text"
+                    placeholder="List your genres, seperated with a comma"
+                    value={ bookGenres } />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBookCoverImage">
                 <Form.Label>Cover Image</Form.Label>
@@ -69,8 +77,8 @@ function EditBookPage() {
                     <br/>
                 </div>
             }
-            <Button variant="primary" type="submit">
-                { book_id? "Save Changes": "New Book" }
+            <Button style={{ backgroundColor: "#A1FDC6", border: "none", color:"black", width:"10em"}} variant="primary" type="submit">
+                { book_id? "Save Changes": "Publish" }
             </Button>
         </Form>
     </div>);
