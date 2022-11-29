@@ -40,7 +40,7 @@ function EditBookPage() {
 
     return (<div style={{ marginTop: "2%", marginRight: "11%", marginLeft: "11%"}}>
         <h1 style = {{fontFamily: "sans-serif"}}>
-            { book_id? "Edit Book Details" : "Create New Book" }
+            { book_id? "Edit Book Details" : "Publish New Book" }
         </h1>
         <Form onSubmit={ onFormSubmit }>
             <Form.Group className="mb-3" controlId="formBookTitle">
