@@ -24,7 +24,7 @@ function ProfilePage() {
   const navigate = useNavigate();
   const { username } = useParams();
   const [profile, setProfile] = useState({});
-  const [sectionInd, setSelectionInd] = useState(0)
+  const [sectionInd, setSelectionInd] = useState(1)
   const booksPerPage = [{isDummy: true}];
 
   useEffect(() => {
@@ -34,7 +34,7 @@ function ProfilePage() {
     });
   }, [username]);
 
-  return <div style={{ marginLeft:"11%", marginTop: "2%", marginBottom: "2%", marginRight: "19%"}}>
+  return <div style={{ marginLeft:"19%", marginTop: "2%", marginBottom: "2%", marginRight: "19%"}}>
     <h1> { profile.username }</h1>
     <h6> im gonna die in here pls </h6>
     <Row> 
