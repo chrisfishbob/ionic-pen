@@ -11,12 +11,6 @@ import { LinkContainer } from "react-router-bootstrap";
 import { useState } from "react";
 import { Dropdown } from "react-bootstrap";
 
-function redirectToRandomBook() {
-  IonicPenAPI.getRandomBook().then((res) => {
-    window.location.href = `/books/info/${res.book_id}`;
-  });
-}
-
 function NavBar(props) {
   const [query, setQuery] = useState("");
   const [showProfile, setShowProfile] = useState(false);
@@ -78,7 +72,6 @@ function NavBar(props) {
             <Button
               variant="success"
               size="sm"
-              onClick={() => redirectToRandomBook()}
             >
               Pick&nbsp;For&nbsp;Me
             </Button>
