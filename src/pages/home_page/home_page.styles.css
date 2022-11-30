@@ -8,3 +8,11 @@
     font-family: "Libre Bonodi";
     margin-bottom: -1%;
 }
+
+/* Media query to center text in mobile view */
+@media screen and (max-width: 730px) {
+    .carousel-text {
+        margin-right: 10%;
+        text-align: center;
+    }
+}
