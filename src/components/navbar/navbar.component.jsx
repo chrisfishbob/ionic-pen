@@ -11,6 +11,18 @@ import { LinkContainer } from "react-router-bootstrap";
 import { useState } from "react";
 import { Dropdown } from "react-bootstrap";
 
+
+// Redirect to random book
+function redirectToRandomBook() {
+  IonicPenAPI.getRandomBook()
+    .then((response) => {
+      window.location.href = "/books/info/" + response.book_id;
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+}
+
 function NavBar(props) {
   const [query, setQuery] = useState("");
   const [showProfile, setShowProfile] = useState(false);
@@ -72,6 +84,7 @@ function NavBar(props) {
             <Button
               variant="success"
               size="sm"
+              onClick={() => redirectToRandomBook()}
             >
               Pick&nbsp;For&nbsp;Me
             </Button>
@@ -86,7 +99,7 @@ function NavBar(props) {
                 setShowProfile(false);
               }}
             >
-              <Button variant="outline-*" size="sm" href="/profile">
+              <Button variant="outline-*" size="sm" href="/profile" >
                 <Image
                   src="https://ionic-pen-public-assets.s3.amazonaws.com/profile.jpeg"
                   width="40"

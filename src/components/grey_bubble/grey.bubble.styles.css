@@ -102,6 +102,10 @@
     align-items: center;
     margin-left: 0;
   }
+
+  .book-title {
+    font-size: large;
+  }
 }
 
 @media screen and (max-height: 680px) {
