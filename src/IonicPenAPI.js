@@ -255,6 +255,53 @@ class IonicPenAPI {
     }
     return {};
   }
+
+  static async editBookDetails(book_title, book_synopsis, book_cover) {
+    let authKey = Session.getCookie("auth-key");
+    try {
+      const response = await axios.post(
+        `${BASE_URL}/api/books/new/`,
+        {
+          book_title: book_title,
+          synopsis: book_synopsis,
+          cover_image: "",
+        },
+        {
+          headers: {
+            "auth-key": authKey,
+          },
+        }
+      );
+      return response.data;
+    } catch (err) {
+      console.log(err);
+    }
+    return {};
+  }
+
+  static async editBookChapterDetails(book_id, chapter_title, chapter_text) {
+    let authKey = Session.getCookie("auth-key");
+    try {
+      const response = await axios.post(
+        `${BASE_URL}/api/books/new/chapter/`,
+        {
+          book_id: book_id,
+          chapter_title: chapter_title,
+          chapter_contents: chapter_text,
+        },
+        {
+          headers: {
+            "auth-key": authKey,
+          },
+        }
+      );
+      console.log(response);
+      return response.data;
+    } catch (err) {
+      console.log(err);
+    }
+    return {};
+  }
 }
 
 export default IonicPenAPI;

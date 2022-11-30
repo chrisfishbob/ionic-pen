@@ -6,7 +6,6 @@ import ProfilePage from "./pages/profile_page/profile_page.component";
 import CatalogPage from "./pages/catalog_page/catalog_page.component";
 import ReadingPage from "./pages/reading_page/reading_page.component";
 import BookDetailPage from "./pages/book_detail_page/book_detail_page.component";
-import CreateBookPage from "./pages/create_book_page/create_book_page.component";
 import EditBookPage from "./pages/edit_book_page/edit_book_page.component";
 import EditChapterPage from "./pages/edit_chapter_page/edit_chapter_page.component";
 
@@ -49,7 +48,7 @@ function App() {
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/profile/:username" element={<ProfilePage />} />
         <Route path="/books" element={<CatalogPage />} />
-        <Route path="/books/new" element={<CreateBookPage />} />
+        <Route path="/books/new" element={<EditBookPage />} />
         <Route path="/books/info/:book_id" element={<BookDetailPage />} />
         <Route path="/books/edit/:book_id" element={<EditBookPage />} />
         <Route

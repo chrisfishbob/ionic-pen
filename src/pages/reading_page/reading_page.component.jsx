@@ -46,7 +46,9 @@ function ReadingPage(props) {
           if (res && res.chapter_ind) {
             setChapterIndex(res.chapter_ind);
           } else {
-            setChapterIndex(0);
+            if (res.book.chapters.length > 0) {
+                setChapterIndex(0);
+            }
           }
         });
       } else {

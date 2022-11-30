@@ -106,11 +106,16 @@ function NavBar(props) {
                 show={showProfile}
                 style={{ left: "-6em", top: "3em" }}
               >
-                <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+                <Dropdown.Item href="/profile">Profile</Dropdown.Item>
                 {props.loggedIn ? (
-                  <Dropdown.Item href="/logout">Logout</Dropdown.Item>
+                  <div>
+                    <Dropdown.Item href="/logout">Logout</Dropdown.Item>
+                  </div>
                 ) : (
-                  <Dropdown.Item href="/login">Login</Dropdown.Item>
+                  <div>
+                    <Dropdown.Item href="/login">Login</Dropdown.Item>
+                    <Dropdown.Item href="/login">Sign Up</Dropdown.Item>
+                  </div>
                 )}
               </Dropdown.Menu>
             </Dropdown>
