@@ -259,20 +259,20 @@ class IonicPenAPI {
   static async editBookDetails(book_title, book_synopsis, book_cover) {
     let authKey = Session.getCookie("auth-key");
     try {
-      const response = await axios.post(
-        `${BASE_URL}/api/books/new/`,
-        {
-          book_title: book_title,
-          synopsis: book_synopsis,
-          cover_image: "",
-        },
-        {
-          headers: {
-            "auth-key": authKey,
-          },
-        }
-      );
-      return response.data;
+      // const response = await axios.post(
+      //   `${BASE_URL}/api/books/new/`,
+      //   {
+      //     book_title: book_title,
+      //     synopsis: book_synopsis,
+      //     cover_image: "",
+      //   },
+      //   {
+      //     headers: {
+      //       "auth-key": authKey,
+      //     },
+      //   }
+      // );
+      // return response.data;
     } catch (err) {
       console.log(err);
     }
@@ -282,12 +282,33 @@ class IonicPenAPI {
   static async editBookChapterDetails(book_id, chapter_title, chapter_text) {
     let authKey = Session.getCookie("auth-key");
     try {
+      // const response = await axios.post(
+      //   `${BASE_URL}/api/books/new/chapter/`,
+      //   {
+      //     book_id: book_id,
+      //     chapter_title: chapter_title,
+      //     chapter_contents: chapter_text,
+      //   },
+      //   {
+      //     headers: {
+      //       "auth-key": authKey,
+      //     },
+      //   }
+      // );
+      // return response.data;
+    } catch (err) {
+      console.log(err);
+    }
+    return {};
+  }
+
+  static async addToLibrary(book_id) {
+    let authKey = Session.getCookie("auth-key");
+    try {
       const response = await axios.post(
-        `${BASE_URL}/api/books/new/chapter/`,
+        `${BASE_URL}/api/library/add/`,
         {
-          book_id: book_id,
-          chapter_title: chapter_title,
-          chapter_contents: chapter_text,
+          book_id: book_id
         },
         {
           headers: {
@@ -295,8 +316,25 @@ class IonicPenAPI {
           },
         }
       );
-      console.log(response);
-      return response.data;
+      return response;
+    } catch (err) {
+      console.log(err);
+    }
+    return {};
+  }
+
+  static async removeFromLibrary(book_id) {
+    let authKey = Session.getCookie("auth-key");
+    try {
+      const response = await axios.patch(
+        `${BASE_URL}/api/library/remove/${book_id}/`, {}, 
+        {
+          headers: {
+            "auth-key": authKey,
+          },
+        }
+      );
+      return response;
     } catch (err) {
       console.log(err);
     }

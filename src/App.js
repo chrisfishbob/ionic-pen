@@ -49,7 +49,7 @@ function App() {
         <Route path="/profile/:username" element={<ProfilePage />} />
         <Route path="/books" element={<CatalogPage />} />
         <Route path="/books/new" element={<EditBookPage />} />
-        <Route path="/books/info/:book_id" element={<BookDetailPage />} />
+        <Route path="/books/info/:book_id" element={<BookDetailPage loggedIn={loggedIn}/>} />
         <Route path="/books/edit/:book_id" element={<EditBookPage />} />
         <Route
           path="/books/read/:book_id"

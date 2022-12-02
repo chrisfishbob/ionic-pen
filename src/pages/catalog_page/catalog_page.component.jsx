@@ -39,7 +39,6 @@ function CatalogPage() {
 
   useEffect(() => {
     IonicPenAPI.getAllBooks().then((response) => {
-      response.books = [...response.books, ...response.books, ...response.books, ...response.books];
       let booksArray = createNestedBooksArray(response.books, pageSize);
       setBooksByPage(booksArray);
     });

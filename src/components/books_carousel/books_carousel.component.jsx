@@ -68,9 +68,9 @@ function BooksCarousel(props) {
                 return (<Link to={`/books/info/${book.book_id}`} key={book.book_id}>
                   <img
                     className="carousel-cover-image"
-                    src={book.cover_image}
                     width="100"
                     height="180"
+                    src={book.cover_image}
                   />
                 </Link>);
               })}

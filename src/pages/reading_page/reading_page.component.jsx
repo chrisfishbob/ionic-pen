@@ -41,18 +41,19 @@ function ReadingPage(props) {
   useEffect(() => {
     IonicPenAPI.getBookDetails(book_id).then((res) => {
       setBookData(res.book);
+      let book = res.book;
       if (props.loggedIn) {
         IonicPenAPI.getBookmark(book_id).then((res) => {
           if (res && res.chapter_ind) {
             setChapterIndex(res.chapter_ind);
           } else {
-            if (res.book.chapters.length > 0) {
+            if (book.chapters.length > 0) {
                 setChapterIndex(0);
             }
           }
         });
       } else {
-        if (res.chapters.length > 0) {
+        if (res.book.chapters.length > 0) {
           setChapterIndex(0);
         }
       }
@@ -68,7 +69,6 @@ function ReadingPage(props) {
         <Offcanvas.Body>
           <ListGroup as="ul">
             {bookData.chapters.map((chapter, ind) => {
-                const is_hovering = false;
               return ind === chapterIndex ? (
                 <ListGroup.Item as="li" active>
                   {chapter.chapter_name}
@@ -101,7 +101,6 @@ function ReadingPage(props) {
           <Card.Body>
             <div style={{ maxHeight: "500px", overflowY: "scroll" }}>
               <div style={{ margin: "2%" }}>
-                <p> {chapterData.chapter_contents} </p>
                 <p> {chapterData.chapter_contents} </p>
               </div>
             </div>
