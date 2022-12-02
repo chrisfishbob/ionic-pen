@@ -3,6 +3,8 @@ import { useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import IonicPenAPI from "../../IonicPenAPI";
 
+import Session from "../../Session";
+import { Navigate } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
@@ -39,6 +41,8 @@ function AccountInfo(props) {
     </Card>
   </div>
 }
+
+
 
 function BooksInfoList(props) {
   return <div style={{height: props.height? props.height: "400px", overflow: "scroll"}}>
@@ -122,6 +126,10 @@ function ProfilePage() {
         <h4><b> Books authored by { profile.username } </b></h4>
         <BooksInfoList books={userBooks} editable={false} height="600px" />
       </div>
+  }
+
+  if (!Session.isLoggedIn()) {
+    return <Navigate to="/login" />;
   }
 
   return <div style={{ marginLeft:"19%", marginTop: "2%", marginBottom: "2%", marginRight: "19%"}}>
