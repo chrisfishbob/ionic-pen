@@ -8,3 +8,21 @@
   display: inline-block;
   margin: 2%;
 }
+
+.page-carousel-images-container {
+  text-align: center;
+}
+
+.page-carousel-cover-image {
+  width: 10vw;
+  height: auto;
+  display: inline-block;
+  margin: 2%;
+}
+
+@media screen and (max-width: 768px) {
+  .page-carousel-cover-image {
+      width: 47vw;
+      margin-bottom: 10px;
+  }
+}

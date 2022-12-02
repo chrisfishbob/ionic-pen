@@ -56,18 +56,18 @@ function BooksCarousel(props) {
       {booksByPage.map((booksPerPage) => {
         return (
           <Carousel.Item>
-            <div className="carousel-images-container">
+            <div className="book-carousel-images-container">
               {booksPerPage.map((book) => {
                 if (book.isDummy)
                   return (<img
-                      className="carousel-cover-image"
+                      className="book-carousel-cover-image"
                       width="100"
                       height="180"
                       src="https://upload.wikimedia.org/wikipedia/commons/8/89/HD_transparent_picture.png"
                     />);
                 return (<Link to={`/books/info/${book.book_id}`} key={book.book_id}>
                   <img
-                    className="carousel-cover-image"
+                    className="book-carousel-cover-image"
                     width="100"
                     height="180"
                     src={book.cover_image}

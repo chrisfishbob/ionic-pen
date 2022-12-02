@@ -55,10 +55,10 @@ function PageCarousel(props) {
       {ObjectsByPage.map((ObjectsPerPage, i) => {
         return (
           <Carousel.Item key={i}>
-            <div className="carousel-images-container">
+            <div className="page-carousel-images-container">
               {ObjectsPerPage.map((object) => {
                   {
-                    return <div className="carousel-cover-image">
+                    return <div className="page-carousel-cover-image">
                       {(object.isDummy)? props.filler: object.html}
                     </div>
                   }
