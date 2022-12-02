@@ -1,6 +1,6 @@
 import Carousel from "react-bootstrap/Carousel";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useLayoutEffect } from "react";
 import { Link } from "react-router-dom";
 
 import "./books_carousel.styles.css";
@@ -31,7 +31,22 @@ function createNestedBooksArray(books, pageSize) {
   return booksByPage;
 }
 
+function useWindowSize() {
+  const [size, setSize] = useState([0, 0]);
+  useLayoutEffect(() => {
+    function updateSize() {
+      setSize([window.innerWidth, window.innerHeight]);
+    }
+    window.addEventListener('resize', updateSize);
+    updateSize();
+    return () => window.removeEventListener('resize', updateSize);
+  }, []);
+  return size;
+}
+
+
 function BooksCarousel(props) {
+  const [window_width, window_height] = useWindowSize();
   const [index, setIndex] = useState(0);
   const [pageSize, setPageSize] = useState(5);
   const [booksByPage, setBooksByPage] = useState([]);
@@ -41,9 +56,18 @@ function BooksCarousel(props) {
   };
 
   useEffect(() => {
+    if (window_width < 768) {
+      setPageSize(1);
+    } else {
+      setPageSize(5);
+    }
+    console.log(pageSize)
+  }, [window_width]);
+
+  useEffect(() => {
     const booksArray = createNestedBooksArray(props.books, pageSize);
     setBooksByPage(booksArray);
-  }, [props.books]);
+  }, [props.books, pageSize]);
  
   return (
     <Carousel
@@ -68,8 +92,6 @@ function BooksCarousel(props) {
                 return (<Link to={`/books/info/${book.book_id}`} key={book.book_id}>
                   <img
                     className="book-carousel-cover-image"
-                    width="100"
-                    height="180"
                     src={book.cover_image}
                   />
                 </Link>);
