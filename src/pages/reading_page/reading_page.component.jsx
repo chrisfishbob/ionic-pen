@@ -42,8 +42,10 @@ function ReadingPage(props) {
     IonicPenAPI.getBookDetails(book_id).then((res) => {
       setBookData(res.book);
       let book = res.book;
+      console.log(props);
       if (props.loggedIn) {
         IonicPenAPI.getBookmark(book_id).then((res) => {
+          console.log(res);
           if (res && res.chapter_ind) {
             setChapterIndex(res.chapter_ind);
           } else {
