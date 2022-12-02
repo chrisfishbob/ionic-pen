@@ -1,19 +1,18 @@
 # Ionic Pen
-Source code repository for the Ionic Pen project.
+Ionic Pen is a open-souce MERN stack Wattpad alternative. Our main focus is on the reading and writing of fanfiction. We support reading, writing, reviewing, searching, and much more!
 
-# See Ionic Pen in Action
-https://ionicpen.tk
 
-# FIGMA Design Link
+## UI Prototype
 https://www.figma.com/file/c8UHVgMAIyej0bX7prE2wl/Ionic-Pen?node-id=1%3A16
 
-# Formatter (Prettier) Link
+## Formatter (Prettier) Link
 https://prettier.io
 
-# Setup Instructions
-Execute `npm install` in terminal from the source code directory.<br>
+## Setup Instructions
+First clone this repository, then `cd ionic-pen`
+execute `npm ci` in terminal<br>
 
-# Running the application
+## Running the application
 Execute `npm start` in terminal from the source code directory.
 
-<sub> Note: Run the backend on port 3200 before starting the application. </sub>
+<sub> Note: Run the backend on port 3200 before starting the application. Information of the API can be found here https://github.com/Samay-1305/ionic-pen-api/blob/main/README.md</sub>
