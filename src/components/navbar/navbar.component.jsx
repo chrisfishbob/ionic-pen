@@ -31,6 +31,16 @@ function NavBar(props) {
     setQuery("");
   }
 
+  function redirectToRandomBook() {
+    IonicPenAPI.getRandomBook()
+      .then((response) => {
+        window.location.href = "/books/info/" + response.book_id;
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
   return (
     <Navbar bg="light" expand="sm" style={{ position: "sticky", top: "0" }}>
       <Container fluid>
@@ -72,6 +82,7 @@ function NavBar(props) {
             <Button
               variant="success"
               size="sm"
+              onClick={() => redirectToRandomBook()}
             >
               Pick&nbsp;For&nbsp;Me
             </Button>
