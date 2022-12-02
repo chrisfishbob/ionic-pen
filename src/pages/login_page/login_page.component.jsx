@@ -66,6 +66,7 @@ function LoginPage(props) {
             </Alert>
           }
           <Card className="login-card">
+            <br></br>
             <Card.Title className="login-text"> LOGIN </Card.Title>
             <Card.Body>
               <Form onSubmit={ onFormSubmit }>
@@ -87,13 +88,16 @@ function LoginPage(props) {
                     value={form.password}
                   />
                 </Form.Group>
-                <Button variant="primary" type="submit">
-                  Login
-                </Button>
+                <center>
+                  <Button variant="primary" type="submit" align-self="center">
+                    Login
+                  </Button>
+                </center>
               </Form>
             </Card.Body>
           </Card>
           <div>
+            <br></br>
             <center>
               Don't have an account? <a href="/signup" style={{'text-decoration': 'none'}}>Sign Up</a> here!
             </center>
