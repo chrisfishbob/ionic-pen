@@ -107,7 +107,7 @@ function NavBar(props) {
                 ) : (
                   <div>
                     <Dropdown.Item href="/login">Login</Dropdown.Item>
-                    <Dropdown.Item href="/login">Sign Up</Dropdown.Item>
+                    <Dropdown.Item href="/signup">Sign Up</Dropdown.Item>
                   </div>
                 )}
               </Dropdown.Menu>
