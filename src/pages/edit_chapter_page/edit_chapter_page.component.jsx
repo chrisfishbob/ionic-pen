@@ -52,9 +52,11 @@ function EditChapterPage() {
 
     function onFormSubmit(event) {
         event.preventDefault();
-        // IonicPenAPI.createNewBookChapter(book_id, chapterName, chapterText).then((res) => {
-        //     navigate(`/book/${book_id}`);
-        // });
+        if (chapterIndex == -1) {
+            IonicPenAPI.createNewBookChapter(book_id, chapterName, chapterText).then((res) => {
+            navigate(`/book/${book_id}`);
+        });
+        }
     }
 
     return (<div style={{ margin: "2%" }}>

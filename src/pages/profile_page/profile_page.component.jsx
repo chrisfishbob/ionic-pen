@@ -25,14 +25,22 @@ function ProfilePage() {
   const { username } = useParams();
   const [profile, setProfile] = useState({});
   const [sectionInd, setSelectionInd] = useState(1)
-  const booksPerPage = [{isDummy: true}];
+  const [userBooks, setUserBooks] = useState([]);
 
   useEffect(() => {
     IonicPenAPI.getProfile(username? username: null).then((res) => {
       setProfile(res);
-      console.log(res);
     });
   }, [username]);
+
+  useEffect(() => {
+    IonicPenAPI.getAllBooks().then((res) => {
+      console.log(res)
+      let books = res.books.filter(book => book.author === profile.username)
+      console.log(books)
+      setUserBooks(books)
+    });
+  }, [profile])
 
   return <div style={{ marginLeft:"19%", marginTop: "2%", marginBottom: "2%", marginRight: "19%"}}>
     <h1> { profile.username }</h1>
@@ -101,33 +109,39 @@ function ProfilePage() {
           </Row>
           <Row>
             <center style={{marginTop:"3em"}}>
-              Current Stories
+              <b>
+                Current Stories
+              </b>
             </center>
+            <br></br>
           </Row>
           <Row>
-            <div>
-                {booksPerPage.map((book) => {
-                  if (book.isDummy)
-                    return (<img
-                        className="carousel-cover-image"
-                        width="100"
-                        height="180"
-                        src="https://ionic-pen-public-assets.s3.amazonaws.com/book_cover_1.jpeg"
-                      />);
-                  return (<Link to={`/books/info/${book.book_id}`} key={book.book_id}>
-                    <img
-                      className="carousel-cover-image"
-                      src={book.cover_image}
-                      width="100"
-                      height="180"
-                    />
-                  </Link>);
-                })}
-              </div>
-          </Row>
-          <Row>
-            <Button style={{ backgroundColor: "#A1FDC6", border: "none", color:"black", width:"12em", fontSize:"12px"}}
-                variant="outline-primary" onClick={()=>setSelectionInd(3)}> Edit Story Details </Button>
+              <div style={{height: "300px", overflow: "scroll"}}>
+                  {userBooks.map((book) => {
+                    return (<Row style={{marginTop: "20px"}}>
+                      <Col style={{marginLeft: "50px"}}>
+                        <Link to={`/books/info/${book.book_id}`} key={book.book_id}>
+                          <img
+                            className="carousel-cover-image"
+                            src={book.cover_image}
+                            width="100"
+                            height="180"
+                          />
+                        </Link>
+                        <Row>
+                          <Button style={{ backgroundColor: "#A1FDC6", border: "none", color:"black", width:"12em", fontSize:"12px"}}
+                              variant="outline-primary" onClick={()=>navigate(`/books/edit/${book.book_id}`)}> Edit Story Details </Button>
+                        </Row>
+                      </Col>
+                      <Col style={{marginLeft: "-200px"}}>
+                        <br></br>
+                        {book.categories.join(", ")} <br />
+                        {book.age} <br />
+                        {book.wordcount} Words; {book.chapters.length} Chapters; {book.likes.length} Likes<br />
+                      </Col>
+                    </Row>);
+                  })}
+                </div>
           </Row>
           </div>
         }
