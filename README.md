@@ -15,4 +15,7 @@ execute `npm ci` in terminal<br>
 ## Running the application
 Execute `npm start` in terminal from the source code directory.
 
+## Demo
+We have a super short demo on this repo called ionic-demo.mp4. But the best demo is to try it out!
+
 <sub> Note: Run the backend on port 3200 before starting the application. Information of the API can be found here https://github.com/Samay-1305/ionic-pen-api/blob/main/README.md</sub>
