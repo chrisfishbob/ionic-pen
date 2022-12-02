@@ -3,6 +3,7 @@ import Button from "react-bootstrap/Button";
 import Alert from 'react-bootstrap/Alert';
 import Form from "react-bootstrap/Form";
 import Card from "react-bootstrap/Card";
+import Image from "react-bootstrap/Image";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
@@ -102,6 +103,11 @@ function LoginPage(props) {
               Don't have an account? <a href="/signup" style={{'text-decoration': 'none'}}>Sign Up</a> here!
             </center>
           </div>
+          <center> 
+            <Image
+             src="./jump-roping.ico"
+            />  
+          </center>
         </Col>
         <Col></Col>
       </Row>
