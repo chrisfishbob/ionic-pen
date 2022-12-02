@@ -10,7 +10,7 @@
 }
 
 /* Media query to center text in mobile view */
-@media screen and (max-width: 730px) {
+@media screen and (max-width: 768px) {
     .carousel-text {
         margin-right: 19%;
         text-align: center;
