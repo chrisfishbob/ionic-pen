@@ -25,5 +25,3 @@ We have a super short demo on this repo called ionic-demo.mp4. But the best demo
 ## Class Diagram
 ![alt text](https://ionic-pen-public-assets.s3.amazonaws.com/IonicPen-1.drawio.png)
 
-
-[![Watch the video](https://i.imgur.com/vKb2F1B.png)](https://youtu.be/vt5fpE0bzSY)
