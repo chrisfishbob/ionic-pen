@@ -23,4 +23,4 @@ We have a super short demo on this repo called ionic-demo.mp4. But the best demo
 <sub> Note: Run the backend on port 3200 before starting the application. Information of the API can be found here https://github.com/Samay-1305/ionic-pen-api/blob/main/README.md</sub>
 
 ## Class Diagram
-![alt text]([https://ionic-pen-public-assets.s3.amazonaws.com/Screenshot+2022-12-02+at+10.08.03+PM.png](https://ionic-pen-public-assets.s3.amazonaws.com/IonicPen-1.drawio.png))
+![alt text](https://ionic-pen-public-assets.s3.amazonaws.com/IonicPen-1.drawio.png)
