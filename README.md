@@ -19,6 +19,7 @@ Execute `npm start` in terminal from the source code directory.
 
 ## Demo
 We have a super short demo on this repo called ionic-demo.mp4. But the best demo is to try it out!
+https://github.com/chrisfishbob/ionic-pen/blob/main/ionic-demo.mp4
 
 ## Test Coverage
 ![alt text](https://ionic-pen-public-assets.s3.amazonaws.com/Screenshot+2022-12-02+at+10.08.03+PM.png)
